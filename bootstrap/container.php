@@ -29,6 +29,9 @@ $app->register('shutdown', function () {
             }
         }
 
+        //Hiển thị debug bar
+        include ROOT . '/appview/views/debug/footer.html.php';
+
     };
 });
 
