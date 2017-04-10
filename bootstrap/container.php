@@ -25,15 +25,15 @@ $app->register('shutdown', function () {
         //Đóng tất cả kết nối tại đây
         if (db_init::$links) {
             foreach (db_init::$links as $link) {
-                @mysqli_close($link);
+                mysqli_close($link);
             }
         }
 
     };
 });
 
-$config = model()->loadModel([], 'config/index');
-
-$app->register('user', function () use ($config) {
-    return $config['vars']['user'];
-});
+//$config = model()->loadModel([], 'config/index');
+//
+//$app->register('user', function () use ($config) {
+//    return $config['vars']['user'];
+//});

@@ -2,18 +2,7 @@ Options +FollowSymLinks
 RewriteEngine On
 RewriteBase /
 
-
-# EXPIRES CACHING
-#<IfModule mod_expires.c>
-#   ExpiresActive On
-#   ExpiresDefault "access plus 1 week"
-#   <IfModule mod_headers.c>
-#       Header append Cache-Control "public"
-#   </IfModule>
-#</IfModule>
-
-
 RewriteCond %{REQUEST_URI} !\.(gif|jpe?g|png|ico|css|js|swf|woff)$
 
 # HOME
-RewriteRule ^(/*)$ /pages/index.php
+RewriteRule ^(.*)$ pages/index.php [L]
