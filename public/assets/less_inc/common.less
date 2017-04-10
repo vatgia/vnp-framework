@@ -1,0 +1,309 @@
+#container{
+  margin:0px;
+  padding:0px;
+  min-height: @page-min_height;
+}
+#content{
+  overflow: hidden;
+}
+#header{
+  width: 100%;
+  background: @nav-bg;
+  overflow: hidden;
+}
+.page_width{
+  width:@page-width;
+  margin: 0px auto;
+}
+.page_left{
+  width: 250px;
+  float: left;
+  background: #fff;
+  margin-top: 10px;
+  border: 1px @page-boder solid;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+.page{
+  float: left;
+  width: 630px;
+  margin-top: 10px;
+  background: #fff;
+  border: 1px @page-boder solid;
+  border-radius: 3px;
+}
+.page_right{
+  width: 300px;
+  float: right;
+  background: #fff;
+  border: 1px @page-boder solid;
+  border-radius: 3px;
+  margin-top: 10px;
+}
+.top_nav{
+  float: right;
+  text-align: right;
+  white-space: nowrap;
+  margin-top: 5px;
+  li{
+    padding-left: 30px;
+    color:@nav-color;
+    float: left;
+    font-size: 12px;
+    a{
+      color:@nav-color;
+    }
+  }
+}
+.logo{
+  float: left;
+  margin-right: 65px;
+}
+.navbar{
+  float: left;
+  height: 60px;
+  li{
+    float: left;
+    padding-right: 15px;
+    a{
+      float: left;
+      color:@nav-color;
+      font-weight: bold;
+      border-bottom: 3px transparent solid;
+      height: 60px;
+      line-height: 60px;
+      box-sizing: border-box;
+    }
+    .nav_div{
+      height: 18px;
+      width: 1px;
+      background: #5087bf;
+      float: left;
+      margin-right: 15px;
+      margin-top: 20px;
+    }
+  }
+}
+.search{
+  width: 300px;
+  height: 30px;
+  background: #fff;
+  float: left;
+  border-radius: 3px;
+  padding-left: 32px;
+  margin-top: 14px;
+  overflow: hidden;
+
+  input{
+    margin:0px;
+    padding:0px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: none;
+  }
+}
+.btn_post{
+  padding: 5px 15px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  margin-top: 13px;
+  float: right;
+}
+
+.list_vehicles{
+  margin:0px;
+  padding:0px;
+  &>li{
+    margin:0px;
+    padding: @page-padding;
+    border-bottom: 1px @page-boder solid;
+    .manu{
+      font-weight: bold;
+      display: block;
+      color:#666;
+    }
+    .vehicles{
+      margin:0px;
+      padding:0px;
+      display: none;
+      padding-top: @page-padding;
+      li{
+        padding: @page-padding;
+        border-top: 1px @page-boder solid;
+        a{
+          color:#333;
+          text-transform: lowercase;
+          &:first-letter{
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+    &.active{
+      .vehicles{
+        display: block;
+      }
+    }
+  }
+}
+
+.list_news{
+  padding: 0px @page-padding;
+  li{
+    border-bottom: 1px @page-boder dashed;
+    padding: @page-padding 0px;
+    overflow: hidden;
+    margin-bottom: -1px;
+    .img{
+      width: 200px;
+      height: 140px;
+      float: left;
+      border: 1px #f1f1f1 solid;
+      border-radius: 3px;
+      padding: 2px;
+      margin-right: @page-padding;
+      img{
+        border-radius: 3px;
+      }
+    }
+    .info{
+      .title{
+        display: block;
+        font-weight: bold;
+        font-size: 18px;
+        color:#454545;
+      }
+      .teaser{
+        display: -webkit-box;
+        unicode-bidi: embed;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        color: #454545;
+        font-size: 13px;
+      }
+    }
+  }
+}
+.pagination{
+  float: right;
+  margin: @page-padding;
+  li{
+    float: left;
+    padding: 2px;
+    a{
+      display: block;
+      span{
+        display: block;
+        border: 1px @page-boder solid;
+        border-radius: 3px;
+        padding: 3px 8px;
+        color:#333;
+      }
+    }
+  }
+}
+.article{
+  padding: @page-padding;
+  overflow: hidden;
+  *{
+    max-width: 100%;
+  }
+  .title{
+    font-size: 22px;
+    margin:0px;
+    padding:0px;
+  }
+  .teaser{
+    color:#454545;
+    margin: 10px 0px;
+    font-weight: bold;
+  }
+  .description{
+    color: #222;
+    line-height: 1.6em;
+    display: block;
+    text-align: justify;
+    img{
+      display: block;
+      margin: 10px auto;
+    }
+    strong{
+      color:#454545;
+      margin: 5px 0px;
+      display: inline-block;
+    }
+    em{
+      display: block;
+      text-align: center;
+    }
+  }
+}
+.news_relative_title{
+  display: block;
+  padding: 0px @page-padding;
+  >span{
+    display: block;
+    border-bottom: 2px #f40 solid;
+    padding-bottom: 7px;
+    >span{
+      display: inline;
+      padding: 5px 0px;
+      border-bottom:3px #f40 solid;
+      font-weight: bold;
+      color:#f40;
+      text-transform: uppercase;
+    }
+  }
+}
+.veh_car{
+  width: 100%;
+  padding: @page-padding;
+  overflow: hidden;
+  .veh_car_media{
+    width: 250px;
+    height: 180px;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    margin-right: @page-padding;
+    .img{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      &.img_sl{
+        display: none;
+        &.active{
+          display: block;
+        }
+      }
+    }
+  }
+  .veh_car_info{
+    margin:0px;
+    padding:0px;
+    .veh_car_name{
+      font-size: 20px;
+      margin:0px;
+      padding: 0px;
+    }
+    .car_year{
+      display: inline-block;
+      padding: 3px 6px;
+      color:#333;
+      border: 1px #ddd solid;
+      margin: 4px 2px;
+      background: #f5f5f5;
+      font-size: 12px;
+    }
+  }
+}
+#footer{
+  height: 147px;
+  width: 100%;
+  background: @footer-background;
+  margin-top: 10px;
+}

@@ -1,0 +1,57 @@
+.top_nav{
+  li{
+    a{
+      &:hover{
+        color:@nav-color_active;
+      }
+    }
+  }
+}
+.navbar{
+  li{
+    a{
+      &:hover{
+        font-weight: bold;
+        border-bottom: 3px @nav-color_active solid;
+        color: @nav-color_active;
+        text-decoration: none;
+      }
+    }
+    &.active{
+      a{
+        font-weight: bold;
+        border-bottom: 3px @nav-color_active solid;
+        color: @nav-color_active;
+        text-decoration: none;
+      }
+    }
+  }
+}
+.search{
+  input{
+    &:focus{
+      outline: none;
+    }
+  }
+}
+.pagination{
+  li{
+    &.active {
+      span{
+        background: @btn-background;
+        border-color: @btn-background;
+        color:@btn-color;
+      }
+    }
+  }
+}
+
+#affiliate-detail-link-container {
+  background: #fff;
+  padding: 50px;
+  .content {
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+  }
+}

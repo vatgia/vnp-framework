@@ -1,0 +1,77 @@
+#simple_tip{
+	position: absolute;
+	z-index: 5;
+}
+#simple_tip_arrow{
+	border: 10px solid transparent;
+	display: block;
+	font-size: 0;
+	position: absolute;
+	z-index: 999999;
+}
+#simple_tip_arrow b{
+	border: 9px solid transparent;
+	font-size: 0;
+	position: absolute;
+}
+#simple_tip_arrow.bottom{
+	border-bottom-color: #CCC;
+	left: 0;
+	top: -20px;
+}
+#simple_tip_arrow.bottom b{
+	border-bottom-color: #FFF;
+	left: -9px;
+	top: -8px;
+}
+#simple_tip_arrow.top{
+	border-top-color: #CCC;
+	left: 0;
+	bottom: -20px;
+}
+#simple_tip_arrow.top b{
+	border-top-color: #FFF;
+	left: -9px;
+	bottom: -8px;
+}
+#simple_tip_arrow.left{
+	border-left-color: #CCC;
+	right: -20px;
+	top: 0;
+}
+#simple_tip_arrow.left b{
+	border-left-color: #FFF;
+	right: -8px;
+	top: -9px;
+}
+#simple_tip_arrow.right{
+	border-right-color: #CCC;
+	left: -20px;
+	top: 0;
+}
+#simple_tip_arrow.right b{
+	border-right-color: #FFF;
+	left: -8px;
+	top: -9px;
+}
+.simple_tip_wrapper{
+	background: #FFF;
+	border: 1px #E5E5E5 solid;
+	box-shadow: 0 1px 3px rgba(204, 204, 204, .5);
+	color: #000;
+	position: relative;
+}
+.simple_tip_confirm{
+	padding: 12px;
+	text-align: center;
+}
+.simple_tip_confirm .button{
+	margin-top: 9px;
+}
+.simple_tip_confirm .button input{
+	font-size: 12px;
+}
+.simple_tip_content_text{
+	line-height: 156%;
+	padding: 9px 12px;
+}

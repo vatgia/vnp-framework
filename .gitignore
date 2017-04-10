@@ -1,0 +1,8 @@
+app
+composer.phar
+vendor/
+libraries
+.env
+.env.server
+public/admin
+.gitmodules

@@ -1,0 +1,99 @@
+/* CSS Window Prompt */
+
+body{
+	_background: url(about:blank) fixed;
+}
+#wPromptOverlay{
+	background: #000;
+	opacity: 0.7;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 9998;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=65)";
+	filter: alpha(opacity=65);
+	_height: expression(eval(document.documentElement.clientHeight));
+	_position: absolute;
+	_top: expression(eval(document.documentElement.scrollTop));
+	_left: expression(eval(document.documentElement.scrollLeft));
+}
+#wPrompt{
+	border-radius: 5px;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	color: #000;
+	font-size: 12px;
+	position: fixed;
+	z-index: 9999;
+}
+.wPromptClose{
+	background: url(../img/icon.png) no-repeat 0 -36px;
+	display: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 40px;
+	height: 40px;
+	z-index: 10000;
+}
+#wPrompt:hover .wPromptClose{
+	display: block;
+}
+.wPromptClear{
+	background: transparent;
+	clear: both;
+	display: block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	overflow: hidden;
+}
+.wPromptWrapper{
+	position: relative;
+}
+.wPromptLoadedContent{
+	float: left;
+	overflow: auto;
+	background: #fff;
+}
+.wPromptTitle{
+	color: #D8052B;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.wPromptAlert, .wPromptConfirm{
+	line-height: 150%;
+	padding: 15px 15px 15px 50px;
+	position: relative;
+}
+.wPromptAlert i, .wPromptConfirm i{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	top: 10px;
+	left: 10px;
+}
+.wPromptAlert i{
+	background: url(../img/icon.png) no-repeat 0 -76px;
+}
+.wPromptConfirm i{
+	background: url(../img/icon.png) no-repeat 0 -106px;
+}
+.wPromptAlertButton, .wPromptConfirmButton{
+	margin-top: 15px;
+	text-align: center;
+}
+.wPromptInputButton{
+	cursor: default;
+	font-size: 12px;
+	font-weight: normal;
+	padding: 3px 15px;
+}
+.wPromptIframe{
+	border: none;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
