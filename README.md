@@ -1,18 +1,26 @@
 Command:
 
-VNP Framework - 2016
+VNP Framework - 2017
 
 ## Bắt đầu 1 project
 
 Tạo 1 folder với tên tương ứng với project mà bạn muốn. Bật cửa sổ cmd hoặc terminal. Cd vào project đó, chạy những lệnh bên dưới
 
     git init
-    
-    git submodule add ssh://git@gitlab.hoidap.vn:2012/jobs/app.git app` hoặc `git submodule add http://gitlab.hoidap.vn/jobs/app.git app
+
+    git submodule add ssh://git@gitlab.hoidap.vn:vnp-framework/app.git app` hoặc `git submodule add http://gitlab.hoidap.vn/vnp-framework/app.git app
 
     git submodule add ssh://git@gitlab.hoidap.vn:2012/vatgia-core-v2/libraries.git libraries` hoặc `git submodule add http://gitlab.hoidap.vn/vatgia-core-v2/libraries.git libraries
 
-    git remote add origin ssh://git@gitlab.hoidap.vn:2012/jobs/view.git` hoặc `git remote add origin http://gitlab.hoidap.vn/jobs/view.git
+    git remote add origin ssh://git@gitlab.hoidap.vn:vnp-framework/view.git` hoặc `git remote add origin http://gitlab.hoidap.vn/vnp-framework/view.git
+
+    git pull origin master
+
+    cd app
+
+    git pull origin master
+
+    cd libraries
 
     git pull origin master
 
@@ -20,7 +28,7 @@ Tạo 1 folder với tên tương ứng với project mà bạn muốn. Bật c�
 
 **_Nếu trên môi trường production thì chạy_**
 
-    
+
     composer install --no-dev
 
 ### Cấu trúc thư mục
@@ -120,7 +128,7 @@ Muốn chia sẻ data với các view khác sử dụng hàm `share()` như sau:
             'index' => 'value'
         ];
         view()->share($dataShare);
-        
+
 Sử dụng data trong file `layout` như sau:
 Với data có dạng:
 
@@ -130,5 +138,5 @@ Với data có dạng:
                 'pagination' => []
             ]
         ];
-        
+
 Ta sẽ có biến `items` và `pagination` ở layout
