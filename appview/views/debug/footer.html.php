@@ -27,7 +27,7 @@ if (config('app.debug') == true || getValue('debug') == 1) {
     $myDebugBar->addTab(
         "Models",
         ["name" => "Model Name", "duration" => "Thời gian xử lý", "file_line" => "File Line"],
-        $arrayDebug["models"],
+        isset($arrayDebug["models"])?$arrayDebug["models"]:[],
         "duration"
     );
     $myDebugBar->addTab(
