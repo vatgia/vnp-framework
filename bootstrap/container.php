@@ -30,13 +30,16 @@ $app->register('shutdown', function () {
         }
 
         //Hiển thị debug bar
-        include ROOT . '/appview/views/debug/footer.html.php';
+//        include ROOT . '/appview/views/debug/footer.html.php';
 
     };
 });
 
-//$config = model()->loadModel([], 'config/index');
-//
-//$app->register('user', function () use ($config) {
-//    return $config['vars']['user'];
-//});
+$config = model()->loadModel([], 'config/index');
+
+//User
+$app->register('user', function () use ($config) {
+    return $config['vars']['user'];
+});
+
+//Config from db

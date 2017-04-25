@@ -21,7 +21,7 @@ function migrate_make($argv) {
         }
 
         $filename = explode(':', $command)[1];
-        $filename = date('Ymd') . '_' . $filename;
+        $filename = date('YmdHms') . '_' . $filename;
 
         $migrationFolder = __DIR__ . '/app/migrations';
 

@@ -8,10 +8,10 @@
 
 return [
     // Biến môi trường
-    'env' => env('APP_ENV', 'local'),
+    'env' => env('APP_ENV', 'development'),
 
     // Chế độ dev: local hoặc api
-    'mode' => (env('APP_ENV', 'production') !== 'production')?env('APP_MODE'):'local',
+    'mode' => (env('APP_ENV', 'production') !== 'production') ? env('APP_MODE') : 'local',
 
     // Đường dẫn lấy dữ liệu qua api
     'api_url_api' => env('APP_API_URL'),

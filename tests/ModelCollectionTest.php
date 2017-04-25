@@ -13,7 +13,8 @@ class ModelCollectionTest extends \PHPUnit\Framework\TestCase
 
     public function setUp()
     {
-        $this->model = new \App\Models\Products\Product();
+        $this->model = new \VatGia\Model\ModelBase('migrations');
+        $this->model->useCollection();
     }
 
     public function tearDown()
@@ -28,14 +29,14 @@ class ModelCollectionTest extends \PHPUnit\Framework\TestCase
 
         foreach($collection as $item)
         {
-            $this->assertInstanceOf(\App\Models\Products\Product::class, $item);
+            $this->assertInstanceOf(\VatGia\Model\ModelBase::class, $item);
         }
     }
 
     public function testCollectionModelSelect()
     {
         $collection = $this->model->select();
-        $this->assertInstanceOf(\App\Models\Products\Product::class, $collection);
+        $this->assertInstanceOf(\VatGia\Model\ModelBase::class, $collection);
     }
 
 }

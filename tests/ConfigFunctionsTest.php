@@ -6,21 +6,18 @@ class ConfigFunctionsTest extends TestCase {
 
     public function test_config_get()
     {
+
+
+        app()->register('config', function () {
+            return \VatGia\Config::load(ROOT . '/tests/config/');
+        });
+
         $expect = 'Justin';
-        $actual = config_get('test.person.info.name');
+        $actual = config('test.person.info.name');
         $this->assertEquals($expect, $actual);
 
-        // Mảng config
-        $config = [
-            'person' => [
-                'info' => [
-                    'name' => 'Justin',
-                    'age'  => 27
-                ]
-            ]
-        ];
 
-        $actual = config_get('test');
+        $actual = config('test');
 
         $this->assertEquals($config, $actual);
     }

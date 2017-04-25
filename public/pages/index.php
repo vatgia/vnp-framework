@@ -2,7 +2,6 @@
 
 require_once dirname(__FILE__) . '/../config.php';
 
-
 use Phroute\Phroute\RouteCollector;
 
 $router = new RouteCollector();

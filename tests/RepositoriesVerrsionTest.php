@@ -27,7 +27,7 @@ class RepositoriesVerrsionTest extends \PHPUnit\Framework\TestCase
 
     public function testRepositoryNotDefineVersion()
     {
-        $this->model->loadModel($input = [], $key = 'test/test_no_version');
+        $this->model->loadModel($input = [], $key = 'config/index');
     }
 
 }
