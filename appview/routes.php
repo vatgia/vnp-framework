@@ -10,15 +10,11 @@ app()->register('route', function () {
     return $route;
 });
 
+app('route')->get('/', [\AppView\Controllers\HomeController::class, 'render']);
 
-app('route')->get('/', function () {
-    $controller = new \AppView\Controllers\HomeController();
-    return $controller->render();
-});
-
-app('route')->get('/posts/{slug}-{id}', function ($slug, $id) {
-    return $slug . '-' . $id;
-});
+app('route')->get(
+    ['/posts/{slug}-{id:\d+}', 'post_detail'],
+    [\AppView\Controllers\PostController::class, 'detail']);
 
 //Filter
 app('route')->filter('auth', function () {
@@ -27,11 +23,11 @@ app('route')->filter('auth', function () {
     }
 });
 
-app('route')->get('/login', [AppView\Controllers\Auth\AuthController::class, 'showLoginForm']);
+app('route')->get(['/login', 'login'], [AppView\Controllers\Auth\AuthController::class, 'showLoginForm']);
 app('route')->get('/idvg/login-callback', [AppView\Controllers\Auth\AuthController::class, 'loginCallback']);
 
-app('route')->get('/logout', [AppView\Controllers\Auth\AuthController::class, 'logout']);
+app('route')->get(['/logout', 'logout'], [AppView\Controllers\Auth\AuthController::class, 'logout']);
 
-app('route')->get('/profile', [AppView\Controllers\Auth\AuthController::class, 'showProfile'], [
+app('route')->get(['/profile', 'profile'], [AppView\Controllers\Auth\AuthController::class, 'showProfile'], [
     'before' => 'auth'
 ]);
