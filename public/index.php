@@ -5,7 +5,7 @@ require_once dirname(__FILE__) . '/../appview/routes.php';
 
 try {
     # NB. You can cache the return value from $router->getData() so you don't have to create the routes each request - massive speed gains
-    $dispatcher = new Phroute\Phroute\Dispatcher(app('route')->getData());
+    $dispatcher = new Phroute\Phroute\Dispatcher(app('route')->getData(), new \VatGia\Helpers\PhRoute\PhRouteHandlerResolver());
 
     $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 

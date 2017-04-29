@@ -19,7 +19,8 @@
     "vatgia/core": "@dev",
     "vatgia/helpers": "@dev",
     "vatgia/model": "@dev",
-    "phroute/phroute": "^2.1"
+    "phroute/phroute": "^2.1",
+    "php-di/php-di": "^5.4"
   },
   "require-dev": {
     "maximebf/debugbar": "^1.13",

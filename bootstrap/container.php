@@ -6,6 +6,14 @@
  * Time: 7:56 AM
  */
 
+$app->register('ioc', function () {
+
+    $containerBuilder = new \DI\ContainerBuilder();
+    $containerBuilder->addDefinitions(__DIR__ . '/ioc_config.php');
+    return $container = $containerBuilder->build();
+
+});
+
 $app->register('debug', function () {
     $debug = new \VatGia\Helpers\Debug();
     return $debug;
@@ -28,14 +36,15 @@ $app->register('shutdown', function () {
                 @mysqli_close($link);
             }
         }
-
         //Hiển thị debug bar
-//        include ROOT . '/appview/views/debug/footer.html.php';
+        if (config('app.debug')) {
+            include ROOT . '/appview/views/debug/footer.html.php';
+        }
 
     };
 });
 
-$config = model()->loadModel([], 'config/index');
+$config = model('config/index')->load([]);
 
 //User
 $app->register('user', function () use ($config) {
