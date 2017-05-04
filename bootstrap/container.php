@@ -6,14 +6,6 @@
  * Time: 7:56 AM
  */
 
-$app->register('ioc', function () {
-
-    $containerBuilder = new \DI\ContainerBuilder();
-    $containerBuilder->addDefinitions(__DIR__ . '/ioc_config.php');
-    return $container = $containerBuilder->build();
-
-});
-
 $app->register('debug', function () {
     $debug = new \VatGia\Helpers\Debug();
     return $debug;
@@ -38,7 +30,7 @@ $app->register('shutdown', function () {
         }
         //Hiển thị debug bar
         if (config('app.debug')) {
-            include ROOT . '/appview/views/debug/footer.html.php';
+//            include ROOT . '/appview/views/debug/footer.html.php';
         }
 
     };

@@ -13,14 +13,14 @@
       "url": "libraries/**/**/"
     }
   ],
+  "minimum-stability": "stable",
   "require": {
     "php": ">=7.0.0",
     "vatgia/framework": "@dev",
     "vatgia/core": "@dev",
     "vatgia/helpers": "@dev",
     "vatgia/model": "@dev",
-    "phroute/phroute": "^2.1",
-    "php-di/php-di": "^5.4"
+    "phroute/phroute": "^2.1"
   },
   "require-dev": {
     "maximebf/debugbar": "^1.13",
