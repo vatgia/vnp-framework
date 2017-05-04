@@ -11,7 +11,7 @@ namespace AppView\Controllers;
 
 use AppView\Repository\PostRepository;
 
-class PostController
+class PostController extends FrontEndController
 {
 
     /**
@@ -24,6 +24,7 @@ class PostController
 
     public function __construct(PostRepository $post)
     {
+        parent::__construct();
         $this->post = $post;
     }
 
