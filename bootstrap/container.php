@@ -24,7 +24,7 @@ $app->register('shutdown', function () {
 
         //Đóng tất cả kết nối tại đây
         if (db_init::$links) {
-            foreach (db_init::$links as $link) {
+            foreach (db_init::$links as &$link) {
                 @mysqli_close($link);
             }
         }
