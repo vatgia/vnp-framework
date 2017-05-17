@@ -8,23 +8,33 @@ Tạo 1 folder với tên tương ứng với project mà bạn muốn. Bật c�
 
     git init
 
-    git submodule add ssh://git@gitlab.hoidap.vn:vnp-framework/app.git app` hoặc `git submodule add http://gitlab.hoidap.vn/vnp-framework/app.git app
-
-    git submodule add ssh://git@gitlab.hoidap.vn:2012/vatgia-core-v2/libraries.git libraries` hoặc `git submodule add http://gitlab.hoidap.vn/vatgia-core-v2/libraries.git libraries
-
-    git remote add origin ssh://git@gitlab.hoidap.vn:vnp-framework/view.git` hoặc `git remote add origin http://gitlab.hoidap.vn/vnp-framework/view.git
+    git remote add origin ssh://git@gitlab.hoidap.vn:2012/vnp-framework/view.git
 
     git pull origin master
 
+    git rm app
+
+    git submodule add -f ssh://git@gitlab.hoidap.vn:2012/vnp-framework/app.git app
+
+    git rm libraries
+
+    git submodule add -f ssh://git@gitlab.hoidap.vn:2012/vatgia-core-v2/libraries.git libraries
+    
+## Tạo project mới
+    
+    git remote remove origin
+    
+    git remote add origin repo_link_new_project_view
+    
     cd app
+    
+    git remote remove origin
+    
+    git remote add origin repo_link_new_project_app
 
-    git pull origin master
-
-    cd libraries
-
-    git pull origin master
-
-    composer install
+## Chạy composer
+    
+      composer install
 
 **_Nếu trên môi trường production thì chạy_**
 
@@ -99,7 +109,7 @@ Ví dụ về việc thao tác với `Model` trong `Controller`
 
         public function renderHtml() {
             $params = [];
-            $data = model()->loadModel($params, 'product/get_list_home_page');
+            $data = model('product/get_list_home_page')->load($params);
             var_dump($data);
         }
 
@@ -115,8 +125,8 @@ Sau khi nhận data từ model chúng ta tiến hành đổ dữ liệu ra view 
 
         public function renderHtml() {
             $params = [];
-            $data = model()->loadModel($params, 'product/get_list_home_page');
-            return view()->render('home/index', $data);
+            $data = model('product/get_list_home_page')->loadModel($params);
+            return view('home/index')->render($data);
         }
 
 Dữ liệu truyền qua `view` bắt buộc phải là dạng mảng, cấu trúc mảng tương tự như dữ liệu từ model trả về.
@@ -140,3 +150,12 @@ Với data có dạng:
         ];
 
 Ta sẽ có biến `items` và `pagination` ở layout
+
+### Đường dẫn view
+Mặc định đường dẫn thư mục chưa layout nằm trong `appview/views`.
+- Có thể thay đổi bằng cách thay đổi cấu hình `dir` trong file config/view.php
+- Hoặc add thêm 1 thư mục chưa layout khác bằng cách addNamespace:
+        
+    view()->addNamespace('SecondViewNameSpace', '/appview/second_view_folder');
+    //Gọi ra như sau
+    view('SecondViewNameSpace::folder/view_name')->render()
