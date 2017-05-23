@@ -9,17 +9,29 @@
   "type": "project",
   "repositories": [
     {
-      "type": "path",
-      "url": "libraries/**/**/"
+      "type": "vcs",
+      "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/model.git"
+    },
+    {
+      "type": "vcs",
+      "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/core.git"
+    },
+    {
+      "type": "vcs",
+      "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/framework.git"
+    },
+    {
+      "type": "vcs",
+      "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/helpers.git"
     }
   ],
   "minimum-stability": "stable",
   "require": {
     "php": ">=7.0.0",
-    "vatgia/framework": "@dev",
-    "vatgia/core": "@dev",
-    "vatgia/helpers": "@dev",
-    "vatgia/model": "@dev",
+    "vatgia/core": "dev-master",
+    "vatgia/model": "1.0.*",
+    "vatgia/framework": "1.0.*",
+    "vatgia/helpers": "1.0.*",
     "phroute/phroute": "^2.1"
   },
   "require-dev": {
