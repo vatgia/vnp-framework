@@ -35,12 +35,3 @@ $app->register('shutdown', function () {
 
     };
 });
-
-$config = model('config/index')->load([]);
-
-//User
-$app->register('user', function () use ($config) {
-    return $config['vars']['user'];
-});
-
-//Config from db

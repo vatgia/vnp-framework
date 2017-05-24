@@ -35,20 +35,15 @@
     "phroute/phroute": "^2.1"
   },
   "require-dev": {
-    "maximebf/debugbar": "^1.13",
-    "filp/whoops": "^2.1",
-    "phpunit/phpunit": "5.5.*",
-    "fzaninotto/faker": "^1.6"
+    "phpunit/phpunit": "5.5.*"
   },
   "autoload": {
     "classmap": [
-
     ],
     "psr-4": {
       "App\\": "app",
       "AppView\\": "appview"
     },
-
     "files": [
       "appview/helpers/include.php"
     ]
@@ -61,9 +56,9 @@
     "post-root-package-install": [
     ],
     "post-create-project-cmd": [
+      "php -r \"copy('.env.sample', '.env');\""
     ],
     "post-install-cmd": [
-      "php -r \"copy('.env.sample', '.env');\""
     ],
     "post-update-cmd": [
     ],
@@ -75,7 +70,7 @@
     "phpcs": "php vendor/bin/phpcs"
   },
   "config": {
-    "process-timeout":  1200,
+    "process-timeout": 1200,
     "preferred-install": "dist"
   }
 }

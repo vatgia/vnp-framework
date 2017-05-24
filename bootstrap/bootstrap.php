@@ -23,15 +23,7 @@ $app->register('config', function () {
 
 defined('MYSQL_MAX_TIME_SLOW') OR define('MYSQL_MAX_TIME_SLOW', config('database.max_time_slow'));
 
-//Prety Exception
-if (config('app.debug') && config('app.prety_exception') && class_exists(\Whoops\Run::class)) {
-    $whoops = new \Whoops\Run;
-    $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
-    $whoops->register();
-}
-
 require_once dirname(__FILE__) . '/container.php';
-
 
 /**
  * Command
