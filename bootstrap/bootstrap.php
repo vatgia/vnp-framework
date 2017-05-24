@@ -2,7 +2,7 @@
 session_start();
 define('APP_START', microtime(true));
 
-define('ROOT', realpath(dirname(__FILE__) . '/../'));
+defined('ROOT') OR define('ROOT', realpath(dirname(__FILE__) . '/../'));
 
 //define('BASE_URL', '//' . $_SERVER['HTTP_HOST']);
 
@@ -21,7 +21,7 @@ $app->register('config', function () {
     return \VatGia\Config::load(ROOT . '/config/');
 });
 
-define('MYSQL_MAX_TIME_SLOW', config('database.max_time_slow'));
+defined('MYSQL_MAX_TIME_SLOW') OR define('MYSQL_MAX_TIME_SLOW', config('database.max_time_slow'));
 
 //Prety Exception
 if (config('app.debug') && config('app.prety_exception') && class_exists(\Whoops\Run::class)) {
