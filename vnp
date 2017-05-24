@@ -1,0 +1,24 @@
+#!/usr/bin/env php
+<?php
+
+require_once dirname(__FILE__) . '/bootstrap/bootstrap.php';
+
+$command = isset($argv[1]) ? trim($argv[1]) : false;
+if (!$command) {
+    echo 'Command not found.' . PHP_EOL;
+    echo 'php vnp --help to list all command';
+    exit;
+}
+
+$command_file = dirname(__FILE__) . '/commands/' . $command . '.php';
+if (file_exists($command_file)) {
+    $status = include $command_file;
+    echo $status;
+    exit;
+} else {
+    echo 'Command not found ' . $command_file;
+    exit;
+}
+
+
+
