@@ -4,7 +4,7 @@ define('APP_START', microtime(true));
 
 define('ROOT', realpath(dirname(__FILE__) . '/../'));
 
-define('BASE_URL', '//' . $_SERVER['HTTP_HOST']);
+//define('BASE_URL', '//' . $_SERVER['HTTP_HOST']);
 
 
 if(is_readable(ROOT . '/app/helpers.php')) {
