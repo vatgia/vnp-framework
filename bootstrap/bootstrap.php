@@ -7,7 +7,7 @@ defined('ROOT') OR define('ROOT', realpath(dirname(__FILE__) . '/../'));
 //define('BASE_URL', '//' . $_SERVER['HTTP_HOST']);
 
 
-if(is_readable(ROOT . '/app/helpers.php')) {
+if (is_readable(ROOT . '/app/helpers.php')) {
     require_once ROOT . '/app/helpers.php';
 }
 
@@ -32,6 +32,12 @@ if (config('app.debug') && config('app.prety_exception') && class_exists(\Whoops
 
 require_once dirname(__FILE__) . '/container.php';
 
+
+/**
+ * Command
+ */
+\VatGia\Helpers\CommandKernel::register('build:config', \VatGia\Helpers\Commands\BuildConfigCommand::class);
+\VatGia\Helpers\CommandKernel::register('make:controller', \VatGia\Helpers\Commands\ControllerGenerateCommand::class);
 
 /**
  * Shutdown function
