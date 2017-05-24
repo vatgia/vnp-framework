@@ -1,9 +1,9 @@
 <?php
 return [
-    'app' => include 'D:\D\Work\Project\VatGia\vatgia-framework\code/config/app.php',
-    'auth' => include 'D:\D\Work\Project\VatGia\vatgia-framework\code/config/auth.php',
-    'database' => include 'D:\D\Work\Project\VatGia\vatgia-framework\code/config/database.php',
-    'development' => include 'D:\D\Work\Project\VatGia\vatgia-framework\code/config/development.php',
-    'view' => include 'D:\D\Work\Project\VatGia\vatgia-framework\code/config/view.php',
+    'app' => include dirname(__FILE__) . '/app.php',
+'auth' => include dirname(__FILE__) . '/auth.php',
+'database' => include dirname(__FILE__) . '/database.php',
+'development' => include dirname(__FILE__) . '/development.php',
+'view' => include dirname(__FILE__) . '/view.php',
 ];
     

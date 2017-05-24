@@ -32,7 +32,7 @@ function build_config()
     $arr_config = [];
     foreach ($files as $file) {
         if (basename($file) != 'all.php') {
-            $arr_config[] = '\'' . str_replace('.php', '', basename($file)) . '\' => include \'' . $file . '\',';
+            $arr_config[] = '\'' . str_replace('.php', '', basename($file)) . '\' => include dirname(__FILE__) . \'/' . basename($file) . '\',';
         }
     }
 

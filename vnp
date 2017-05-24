@@ -19,6 +19,7 @@ if (file_exists($command_file)) {
     echo 'Command not found ' . $command_file;
     exit;
 }
+exit;
 
 
 
