@@ -29,8 +29,8 @@ $app->register('shutdown', function () {
             }
         }
         //Hiển thị debug bar
-        if (config('app.debug')) {
-//            include ROOT . '/appview/views/debug/footer.html.php';
+        if (config('app.debug') && php_sapi_name() != "cli") {
+            include ROOT . '/appview/views/debug/footer.html.php';
         }
 
     };

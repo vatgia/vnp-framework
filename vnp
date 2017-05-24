@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+<?php
+
+require_once dirname(__FILE__) . '/bootstrap/bootstrap.php';
+try {
+    $command = new \VatGia\Helpers\CommandKernel($argv);
+    $command->resolveHandler();
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
+
+
