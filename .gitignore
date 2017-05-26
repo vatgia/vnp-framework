@@ -1,5 +1,6 @@
 app
 composer.phar
+composer.lock
 vendor/
 libraries
 .env
