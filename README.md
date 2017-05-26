@@ -50,7 +50,6 @@ Tạo 1 folder với tên tương ứng với project mà bạn muốn. Bật c�
     - Views
     - Helpers
     - ...
-- libraries
 - config
     - app.php
     - baokim.php
@@ -64,9 +63,7 @@ Tạo 1 folder với tên tương ứng với project mà bạn muốn. Bật c�
 - ipdberror
 - vendor
 - .env
-- .env.api
 - .env.example
-- .env.api.example
 ```
 
 ## Migrations
