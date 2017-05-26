@@ -15,10 +15,6 @@ Tạo 1 folder với tên tương ứng với project mà bạn muốn. Bật c�
     git rm app
 
     git submodule add -f ssh://git@gitlab.hoidap.vn:2012/vnp-framework/app.git app
-
-    git rm libraries
-
-    git submodule add -f ssh://git@gitlab.hoidap.vn:2012/vatgia-core-v2/libraries.git libraries
     
 ## Tạo project mới
     
