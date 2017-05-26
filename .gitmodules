@@ -1,6 +1,0 @@
-[submodule "app"]
-	path = app
-	url = ssh://git@gitlab.hoidap.vn:2012/vnp-framework/app.git
-[submodule "libraries"]
-	path = libraries
-	url = ssh://git@gitlab.hoidap.vn:2012/vatgia-core-v2/libraries.git
