@@ -21,6 +21,12 @@ $app->register('config', function () {
     return \VatGia\Config::load(ROOT . '/config/');
 });
 
+if (config('app.debug')) {
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+}
+
 defined('MYSQL_MAX_TIME_SLOW') OR define('MYSQL_MAX_TIME_SLOW', config('database.max_time_slow'));
 
 require_once dirname(__FILE__) . '/container.php';

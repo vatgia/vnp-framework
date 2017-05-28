@@ -47,7 +47,8 @@ Tạo 1 folder với tên tương ứng với project mà bạn muốn. Bật c�
     - ....
 - appview
     - Controllers
-    - Views
+    - Repository
+    - views
     - Helpers
     - ...
 - config
@@ -59,11 +60,13 @@ Tạo 1 folder với tên tương ứng với project mà bạn muốn. Bật c�
     - pages
     - js
     - css
+    - index.php
 - ipstore
 - ipdberror
 - vendor
 - .env
 - .env.example
+- vnp
 ```
 
 ## Migrations
@@ -148,7 +151,8 @@ Ta sẽ có biến `items` và `pagination` ở layout
 Mặc định đường dẫn thư mục chưa layout nằm trong `appview/views`.
 - Có thể thay đổi bằng cách thay đổi cấu hình `dir` trong file config/view.php
 - Hoặc add thêm 1 thư mục chưa layout khác bằng cách addNamespace:
-        
+
+---
     view()->addNamespace('SecondViewNameSpace', '/appview/second_view_folder');
     //Gọi ra như sau
     view('SecondViewNameSpace::folder/view_name')->render()
