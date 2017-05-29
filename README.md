@@ -6,15 +6,12 @@ VNP Framework - 2017
 
 Tạo 1 folder với tên tương ứng với project mà bạn muốn. Bật cửa sổ cmd hoặc terminal. Cd vào project đó, chạy những lệnh bên dưới
 
-    git init
 
-    git remote add origin ssh://git@gitlab.hoidap.vn:2012/vnp-framework/view.git
+    git clone ssh://git@gitlab.hoidap.vn:2012/vnp-framework/view.git .
+    
+    cd app
 
-    git pull origin master
-
-    git rm app
-
-    git submodule add -f ssh://git@gitlab.hoidap.vn:2012/vnp-framework/app.git app
+    git clone ssh://git@gitlab.hoidap.vn:2012/vnp-framework/app.git .
     
 ## Tạo project mới
     
@@ -36,6 +33,14 @@ Tạo 1 folder với tên tương ứng với project mà bạn muốn. Bật c�
 
 
     composer install --no-dev
+    
+### build all config
+
+    php vnp build:config
+    
+### Tạo controller
+
+    php vnp make:controller --name=HomeController
 
 ### Cấu trúc thư mục
 
@@ -48,10 +53,11 @@ Tạo 1 folder với tên tương ứng với project mà bạn muốn. Bật c�
 - appview
     - Controllers
     - Repository
-    - views
     - Helpers
+    - views
     - ...
 - config
+    - all.php
     - app.php
     - baokim.php
     - ....
