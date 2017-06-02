@@ -2,7 +2,12 @@ Options +FollowSymLinks
 RewriteEngine On
 RewriteBase /
 
-RewriteCond %{REQUEST_URI} !\.(gif|jpe?g|png|ico|css|js|swf|woff|woff2)$
 
 # HOME
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !\.(gif|jpe?g|png|ico|css|js|swf|woff|woff2)$
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
 RewriteRule ^(.*)$ index.php [L]
