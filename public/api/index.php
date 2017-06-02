@@ -5,6 +5,9 @@
  * Date: 12/2/16
  * Time: 11:58 PM
  */
+
+define('IS_API_CALL', true);
+
 try {
 
     if (!isset($_SERVER['PHP_AUTH_USER'])) {
@@ -23,13 +26,11 @@ try {
         }
     }
 
+    require_once dirname(__FILE__) . '/../../bootstrap/bootstrap.php';
+
     if (config('app.env') == 'production') {
         exit;
     }
-
-    define('IS_API_CALL', true);
-
-    require_once dirname(__FILE__) . '/../../bootstrap/bootstrap.php';
 
     $body = json_decode(file_get_contents('php://input'), true);
 
