@@ -1,4 +1,5 @@
 <?php
+//Disable for fix session locking
 //session_start();
 define('APP_START', microtime(true));
 
