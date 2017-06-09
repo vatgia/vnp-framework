@@ -4,19 +4,6 @@ $arrayDebug = debug()->output();
 
 if (config('app.debug') == true || getValue('debug') == 1) {
 
-    if (getValue('debugbar')) {
-
-        $debugBar = new \DebugBar\StandardDebugBar();
-        $debugBarRender = $debugBar->getJavascriptRenderer();
-
-        debug()->addToDebugBar($debugBar);
-
-        $debugBar['time']->addMeasure('App', APP_START, microtime(true));
-
-        echo $debugBarRender->renderHead();
-        echo $debugBarRender->render();
-    }
-
     $myDebugBar = new \VatGia\Helpers\DebugBar();
     $myDebugBar->addTab(
         "Views",

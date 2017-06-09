@@ -29,9 +29,9 @@
   "require": {
     "php": ">=7.0.0",
     "vatgia/core": "dev-master",
-    "vatgia/model": "1.0.*",
-    "vatgia/framework": "1.0.*",
-    "vatgia/helpers": "1.0.*",
+    "vatgia/model": "dev-master",
+    "vatgia/framework": "dev-master",
+    "vatgia/helpers": "dev-master",
     "phroute/phroute": "^2.1"
   },
   "require-dev": {
