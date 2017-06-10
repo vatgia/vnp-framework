@@ -31,7 +31,6 @@ class PostController extends FrontEndController
     public function detail($slug, $id)
     {
         $detail = $this->post->getByID($id);
-
         return view('posts/detail')->render([
             'item' => $detail
         ]);

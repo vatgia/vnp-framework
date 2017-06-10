@@ -19,6 +19,30 @@ $app->register('view', function () {
     return new \VatGia\View;
 });
 
+$app->register('notFoundHandler', function () {
+    return function ($e) {
+        throw $e;
+    };
+});
+
+$app->register('methodNotAllowHandler', function () {
+    return function ($e) {
+        throw $e;
+    };
+});
+
+$app->register('errorHandler', function () {
+    return function ($e) {
+        throw $e;
+    };
+});
+
+$app->register('phpErrorHandler', function () {
+    return function ($e) {
+        throw $e;
+    };
+});
+
 $app->register('shutdown', function () {
     return function () {
 
