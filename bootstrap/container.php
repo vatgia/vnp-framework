@@ -45,7 +45,6 @@ $app->register('phpErrorHandler', function () {
 
 $app->register('shutdown', function () {
     return function () {
-
         //Đóng tất cả kết nối tại đây
         if (db_init::$links) {
             foreach (db_init::$links as &$link) {
@@ -54,8 +53,7 @@ $app->register('shutdown', function () {
         }
         //Hiển thị debug bar
         if (config('app.debug') && php_sapi_name() != "cli" && !defined('IS_API_CALL')) {
-            include ROOT . '/appview/views/debug/footer.html.php';
+            include ROOT . '/appview/views/debug/debug_bar.html.php';
         }
-
     };
 });
