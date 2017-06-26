@@ -8,27 +8,34 @@ if (config('app.debug') == true || getValue('debug') == 1) {
     $myDebugBar->addTab(
         "Views",
         ["name" => "View Name", "duration" => "Thời gian xử lý", "file_line" => "File Line"],
-        isset($arrayDebug["views"])?$arrayDebug["views"]:[],
+        isset($arrayDebug["views"]) ? $arrayDebug["views"] : [],
         "duration"
     );
     $myDebugBar->addTab(
         "Models",
         ["name" => "Model Name", "duration" => "Thời gian xử lý", "file_line" => "File Line"],
-        isset($arrayDebug["models"])?$arrayDebug["models"]:[],
+        isset($arrayDebug["models"]) ? $arrayDebug["models"] : [],
         "duration"
     );
-    $myDebugBar->addTab(
-        "Queries",
-        ["query" => "SQL", "duration" => "Thời gian xử lý", "host" => "Host", "type" => "USE", "file_line" => "File Line"],
-        isset($arrayDebug["queries"]) ? $arrayDebug["queries"] : [],
-        "duration"
-    );
-    $myDebugBar->addTab(
-        "Connect DB",
-        ["host" => "Host", "type" => "USE","duration" => "Thời gian xử lý", "file_line" => "File Line"],
-        isset($arrayDebug["connect"]) ? $arrayDebug["connect"] : [],
-        "duration"
-    );
+
+    if (isset($arrayDebug["queries"])) {
+        $myDebugBar->addTab(
+            "Queries",
+            ["query" => "SQL", "duration" => "Thời gian xử lý", "host" => "Host", "type" => "USE", "file_line" => "File Line"],
+            isset($arrayDebug["queries"]) ? $arrayDebug["queries"] : [],
+            "duration"
+        );
+    }
+
+    if (isset($arrayDebug["connect"])) {
+        $myDebugBar->addTab(
+            "Connect DB",
+            ["host" => "Host", "type" => "USE", "duration" => "Thời gian xử lý", "file_line" => "File Line"],
+            isset($arrayDebug["connect"]) ? $arrayDebug["connect"] : [],
+            "duration"
+        );
+    }
+
     $myDebugBar->addTab(
         "Includes",
         ["file" => "File Include"],

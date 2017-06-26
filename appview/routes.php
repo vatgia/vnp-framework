@@ -14,7 +14,8 @@ app('route')->get('/', [\AppView\Controllers\HomeController::class, 'render']);
 
 app('route')->get(
     ['/posts/{slug}-{id:\d+}', 'post_detail'],
-    [\AppView\Controllers\PostController::class, 'detail']);
+    [\AppView\Controllers\PostController::class, 'detail']
+);
 
 //Filter
 app('route')->filter('auth', function () {
