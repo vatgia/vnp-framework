@@ -51,9 +51,13 @@ $app->register('shutdown', function () {
                 @mysqli_close($link);
             }
         }
+
         //Hiển thị debug bar
-        if (config('app.debug') && php_sapi_name() != "cli" && !defined('IS_API_CALL')) {
-            include ROOT . '/appview/views/debug/debug_bar.html.php';
+        if (config('app.debug')
+            && php_sapi_name() != "cli"
+            && !defined('IS_API_CALL')
+        ) {
+//            include ROOT . '/appview/views/debug/debug_bar.html.php';
         }
     };
 });

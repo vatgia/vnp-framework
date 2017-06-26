@@ -30,5 +30,27 @@ app('route')->get('/idvg/login-callback', [AppView\Controllers\Auth\AuthControll
 app('route')->get(['/logout', 'logout'], [AppView\Controllers\Auth\AuthController::class, 'logout']);
 
 app('route')->get(['/profile', 'profile'], [AppView\Controllers\Auth\AuthController::class, 'showProfile'], [
-    'before' => 'auth'
+    'before' => ['auth']
 ]);
+
+
+app('route')->get('/api/posts/{id}', [\AppView\Controllers\Api\PostDetailController::class, 'process']);
+
+/**
+ * App API wrapper
+ */
+app('route')->group(
+    ['before' => 'api'],
+    function ($router) {
+
+        $router->any('/api/{group}', [\VatGia\Api\AppRepositoryController::class, 'process']);
+        $router->any('/api/{group}/{name}', [\VatGia\Api\AppRepositoryController::class, 'process']);
+        $router->any('/api/{group}/{child_group}/{name}', [\VatGia\Api\AppRepositoryController::class, 'process']);
+
+    },
+    [
+        //Filter
+        //'before' => ['api_auth'],
+        //'after' => ['pretty_api_response']
+    ]
+);
