@@ -40,17 +40,16 @@ app('route')->get('/api/posts/{id}', [\AppView\Controllers\Api\PostDetailControl
  * App API wrapper
  */
 app('route')->group(
-    ['before' => 'api'],
+    [
+        'prefix' => 'api',
+        'before' => '',
+        'after' => ''
+    ],
     function ($router) {
 
-        $router->any('/api/{group}', [\VatGia\Api\AppRepositoryController::class, 'process']);
-        $router->any('/api/{group}/{name}', [\VatGia\Api\AppRepositoryController::class, 'process']);
-        $router->any('/api/{group}/{child_group}/{name}', [\VatGia\Api\AppRepositoryController::class, 'process']);
+        $router->any('{group}', [\VatGia\Api\AppRepositoryController::class, 'process']);
+        $router->any('{group}/{name}', [\VatGia\Api\AppRepositoryController::class, 'process']);
+        $router->any('{group}/{child_group}/{name}', [\VatGia\Api\AppRepositoryController::class, 'process']);
 
-    },
-    [
-        //Filter
-        //'before' => ['api_auth'],
-        //'after' => ['pretty_api_response']
-    ]
+    }
 );
