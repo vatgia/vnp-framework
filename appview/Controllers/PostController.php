@@ -10,6 +10,7 @@ namespace AppView\Controllers;
 
 
 use AppView\Repository\PostRepository;
+use AppView\Repository\PostRepositoryInterface;
 
 class PostController extends FrontEndController
 {
@@ -22,7 +23,7 @@ class PostController extends FrontEndController
      */
     protected $post;
 
-    public function __construct(PostRepository $post)
+    public function __construct(PostRepositoryInterface $post)
     {
         parent::__construct();
         $this->post = $post;
@@ -32,7 +33,8 @@ class PostController extends FrontEndController
     {
         $detail = $this->post->getByID($id);
         return view('posts/detail')->render([
-            'item' => $detail
+            'item' => $detail,
+            'abc' => view('welcome')->render()
         ]);
     }
 }

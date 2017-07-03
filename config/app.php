@@ -26,5 +26,7 @@ return [
     //Thư mục app
     'app_dir' => 'app',
 
-    'app_uri' => env('APP_URL')
+    'app_uri' => env('APP_URL'),
+
+    'debugbar' => true
 ];

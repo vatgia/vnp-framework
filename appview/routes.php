@@ -34,7 +34,7 @@ app('route')->get(['/profile', 'profile'], [AppView\Controllers\Auth\AuthControl
 ]);
 
 
-app('route')->get('/api/posts/{id}', [\AppView\Controllers\Api\PostDetailController::class, 'process']);
+app('route')->get('/api/posts/{id:\d+}', [\AppView\Controllers\Api\PostDetailController::class, 'process']);
 
 /**
  * App API wrapper

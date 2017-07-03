@@ -9,15 +9,20 @@
 namespace AppView\Repository;
 
 
-class PostRepository
+class PostRepository implements PostRepositoryInterface
 {
 
-    public function getByID(int $id)
+    public function getByID($id)
     {
         $data = model('posts/get_post_by_id')->load([
             'id' => (int)$id
         ]);
 
         return $data['vars']['detail'];
+    }
+
+    public function all()
+    {
+
     }
 }

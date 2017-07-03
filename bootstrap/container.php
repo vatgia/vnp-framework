@@ -53,11 +53,16 @@ $app->register('shutdown', function () {
         }
 
         //Hiển thị debug bar
-        if (config('app.debug')
+        if (
+            config('app.debugbar')
+            && config('app.debug')
             && php_sapi_name() != "cli"
             && !defined('IS_API_CALL')
         ) {
-//            include ROOT . '/appview/views/debug/debug_bar.html.php';
+            include ROOT . '/appview/views/debug/debug_bar.html.php';
         }
     };
 });
+
+//ioc
+app()->register(\AppView\Repository\PostRepositoryInterface::class, DI\object(\AppView\Repository\PostRepository::class));
