@@ -33,12 +33,6 @@ defined('MYSQL_MAX_TIME_SLOW') OR define('MYSQL_MAX_TIME_SLOW', config('database
 require_once dirname(__FILE__) . '/container.php';
 
 /**
- * Command
- */
-\VatGia\Helpers\CommandKernel::register('build:config', \VatGia\Helpers\Commands\BuildConfigCommand::class);
-\VatGia\Helpers\CommandKernel::register('make:controller', \VatGia\Helpers\Commands\ControllerGenerateCommand::class);
-
-/**
  * Shutdown function
  */
 
