@@ -25,6 +25,10 @@
       "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/helpers.git"
     },
     {
+      "type": "vcs",
+      "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/api.git"
+    },
+    {
      "type": "path",
       "url": "libraries/**/**/"
     }

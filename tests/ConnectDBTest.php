@@ -11,8 +11,8 @@ class ConnectDBTest extends \PHPUnit\Framework\TestCase
     public function testConnect()
     {
         mysqli_connect(
-            'vnpdb',
-            'dev',
+            'localhost:6604',
+            'root',
             '123456',
             'vnpdatabase'
         );

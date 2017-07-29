@@ -28,5 +28,9 @@ return [
 
     'app_uri' => env('APP_URL'),
 
-    'debugbar' => true
+    'debugbar' => true,
+
+    'providers' => [
+
+    ]
 ];
