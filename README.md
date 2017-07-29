@@ -36,11 +36,11 @@ Tạo 1 folder với tên tương ứng với project mà bạn muốn. Bật c�
     
 ### build all config
 
-    php vnp build:config
+    vendor/bin/vnp build:config
     
 ### Tạo controller
 
-    php vnp make:controller --name=HomeController
+    vendor/bin/vnp make:controller HomeController
 
 ### Cấu trúc thư mục
 
@@ -55,7 +55,11 @@ Tạo 1 folder với tên tương ứng với project mà bạn muốn. Bật c�
     - Repository
     - Helpers
     - views
+    - routes
     - ...
+- bootstrap
+    - bootstrap.php
+    - container.php
 - config
     - all.php
     - app.php
@@ -63,7 +67,7 @@ Tạo 1 folder với tên tương ứng với project mà bạn muốn. Bật c�
     - ....
 - public
     - .htaccess
-    - pages
+    - api
     - js
     - css
     - index.php

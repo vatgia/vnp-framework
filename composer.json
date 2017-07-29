@@ -9,6 +9,10 @@
   "type": "project",
   "repositories": [
     {
+      "type": "path",
+      "url": "libraries/**/**/"
+    },
+    {
       "type": "vcs",
       "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/model.git"
     },
@@ -27,10 +31,6 @@
     {
       "type": "vcs",
       "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/api.git"
-    },
-    {
-     "type": "path",
-      "url": "libraries/**/**/"
     }
   ],
   "minimum-stability": "stable",
@@ -41,7 +41,8 @@
     "vatgia/framework": "dev-master",
     "vatgia/helpers": "dev-master",
     "phroute/phroute": "^2.1",
-    "vatgia/api": "dev-master"
+    "vatgia/api": "dev-master",
+    "symfony/console": "^3.3"
   },
   "require-dev": {
     "phpunit/phpunit": "5.5.*",
