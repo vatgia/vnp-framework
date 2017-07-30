@@ -42,7 +42,7 @@
     "vatgia/helpers": "dev-master",
     "phroute/phroute": "^2.1",
     "vatgia/api": "dev-master",
-    "symfony/console": "^3.3"
+    "vatgia/admin": "dev-master"
   },
   "require-dev": {
     "phpunit/phpunit": "5.5.*",

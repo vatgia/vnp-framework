@@ -21,11 +21,11 @@ class WelcomeCommand extends \VatGia\Helpers\Console\Command
     {
         $hello = [
             'en' => 'Hello ',
-            'vn' => 'Xin chào ',
+            'vn' => 'Xin chao ',
             'fr' => 'Bonjour ',
             'cn' => '您好 ',
-            'ru' => 'Здравствуйте',
-            'kr' => '안녕하세요',
+            'ru' => 'Здравствуйте ',
+            'kr' => '안녕하세요 ',
         ];
 
         $name = $this->input->getArgument('name');
@@ -33,29 +33,32 @@ class WelcomeCommand extends \VatGia\Helpers\Console\Command
         $lang = $this->input->getOption('lang');
         if ($lang) {
             if (!in_array($lang, array_keys($hello))) {
-                $this->output->writeln('Dont support this language');
+                $this->output->error('Dont support this language');
             } else {
                 $this->output->writeln(sprintf('%s%s', $hello[$lang], $name));
             }
         } else {
 
-//            $this->output->ask
+//            $lang = $this->output->ask('What your lang? (' . implode('|', array_keys($hello)) . ')');
+//            $en = $this->output->confirm('Are you Emnglish?', true);
 
-            $this->output->writeln(sprintf('%s%s', $hello['en'], $name));
+            $lang = $this->output->choice('What\'s your language?', array_keys($hello), 'en');
+
+            $this->output->success(sprintf('%s%s', $hello[$lang], $name));
         }
     }
 
     protected function getArguments()
     {
         return [
-            ['name', InputArgument::REQUIRED, 'Tell me your name?']
+            ['name', InputArgument::REQUIRED, 'Tell me your name?'],
         ];
     }
 
     protected function getOptions()
     {
         return [
-            ['lang', null, InputOption::VALUE_OPTIONAL, 'Language you want to display']
+            ['lang', null, InputOption::VALUE_OPTIONAL, 'Language you want to display'],
         ];
     }
 }

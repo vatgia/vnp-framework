@@ -8,5 +8,7 @@
 return [
     \VatGia\Helpers\Console\Commands\BuildConfigCommand::class,
     \VatGia\Helpers\Console\Commands\ControllerGenerateCommand::class,
+    \VatGia\Helpers\Console\Commands\ModelGenerateCommand::class,
     \AppView\Commands\WelcomeCommand::class,
+    \VatGia\Admin\Commands\AdminModuleGenerateCommand::class,
 ];
