@@ -2,37 +2,16 @@ Command:
 
 VNP Framework - 2017
 
-## Bắt đầu 1 project
+# Cách tạo 1 project mới
 
-Tạo 1 folder với tên tương ứng với project mà bạn muốn. Bật cửa sổ cmd hoặc terminal. Cd vào project đó, chạy những lệnh bên dưới
+Via VNP Installer
 
+    composer global config repositories.0 vcs ssh://git@gitlab.hoidap.vn:2012/vnp-framework/installer.git
+    
+    composer global require vatgia/installer
+    
+    vnp-framework new blog
 
-    git clone ssh://git@gitlab.hoidap.vn:2012/vnp-framework/view.git .
-    
-    cd app
-
-    git clone ssh://git@gitlab.hoidap.vn:2012/vnp-framework/app.git .
-    
-## Tạo project mới
-    
-    git remote remove origin
-    
-    git remote add origin repo_link_new_project_view
-    
-    cd app
-    
-    git remote remove origin
-    
-    git remote add origin repo_link_new_project_app
-
-## Chạy composer
-    
-      composer install
-
-**_Nếu trên môi trường production thì chạy_**
-
-
-    composer install --no-dev
     
 ### build all config
 
