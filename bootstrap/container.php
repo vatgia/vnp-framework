@@ -6,19 +6,6 @@
  * Time: 7:56 AM
  */
 
-$app->register('debug', function () {
-    $debug = new \VatGia\Helpers\Debug();
-    return $debug;
-});
-
-$app->register('model', function () {
-    return new \VatGia\Model;
-});
-
-$app->register('view', function () {
-    return new \VatGia\View;
-});
-
 $app->register('notFoundHandler', function () {
     return function ($e) {
         throw $e;
@@ -43,8 +30,8 @@ $app->register('phpErrorHandler', function () {
     };
 });
 
-$app->register('shutdown', function () {
-    return function () {
+$app->register('shutdown', function () use ($app) {
+    return function () use ($app) {
         //Đóng tất cả kết nối tại đây
         if (db_init::$links) {
             foreach (db_init::$links as &$link) {
@@ -56,13 +43,12 @@ $app->register('shutdown', function () {
         if (
             config('app.debugbar')
             && config('app.debug')
-            && php_sapi_name() != "cli"
+            && !$app->runningInConsole()
             && !defined('IS_API_CALL')
         ) {
-            include ROOT . '/appview/views/debug/debug_bar.html.php';
+            echo view('debug/debug_bar')->render();
         }
     };
 });
 
-//ioc
-app()->register(\AppView\Repository\PostRepositoryInterface::class, DI\object(\AppView\Repository\PostRepository::class));
+$app->bind(\AppView\Repository\PostRepositoryInterface::class, \AppView\Repository\PostRepository::class);

@@ -5,11 +5,6 @@
  * https://github.com/mrjgreen/phroute
  */
 
-app()->register('route', function () {
-    $route = new \Phroute\Phroute\RouteCollector();
-    return $route;
-});
-
 app('route')->get('/', [\AppView\Controllers\HomeController::class, 'render']);
 
 app('route')->get(
@@ -18,7 +13,7 @@ app('route')->get(
 );
 
 //Filter
-app('route')->filter('auth', function () {
+app('route')->filter('auth', function () use ($app) {
     if (!app('user')->logged) {
         return redirect('/login');
     }

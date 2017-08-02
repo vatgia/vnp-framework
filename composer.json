@@ -43,8 +43,7 @@
     "vatgia/framework": "dev-master",
     "vatgia/core": "dev-master",
     "vatgia/model": "dev-master",
-    "vatgia/helpers": "dev-master",
-    "phroute/phroute": "^2.1"
+    "vatgia/helpers": "dev-master"
   },
   "require-dev": {
     "phpunit/phpunit": "5.5.*",

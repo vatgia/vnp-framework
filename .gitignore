@@ -1,7 +1,7 @@
 app
 composer.phar
 composer.lock
-vendor/
+/vendor
 libraries
 .env
 .env.server
