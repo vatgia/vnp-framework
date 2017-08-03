@@ -9,12 +9,55 @@ require_once ROOT . '/vendor/autoload.php';
 
 $app = new \VatGia\Application();
 
-require_once dirname(__FILE__) . '/container.php';
+$app->bind('notFoundHandler', function () {
+    return function ($e) {
+        throw $e;
+    };
+});
+
+$app->bind('methodNotAllowHandler', function () {
+    return function ($e) {
+        throw $e;
+    };
+});
+
+$app->bind('errorHandler', function () {
+    return function ($e) {
+        throw $e;
+    };
+});
+
+$app->bind('phpErrorHandler', function () {
+    return function ($e) {
+        throw $e;
+    };
+});
+
+$app->bind('shutdown', function () use ($app) {
+    return function () use ($app) {
+        //Đóng tất cả kết nối tại đây
+        if (db_init::$links) {
+            foreach (db_init::$links as &$link) {
+                @mysqli_close($link);
+            }
+        }
+
+        //Hiển thị debug bar
+        if (
+            config('app.debugbar')
+            && config('app.debug')
+            && !$app->runningInConsole()
+            && !defined('IS_API_CALL')
+        ) {
+            echo view('debug/debug_bar')->render();
+        }
+    };
+});
 
 /**
  * Shutdown function
  */
-
 register_shutdown_function(app('shutdown'));
-$app->boot();
+
+$app->bind(\AppView\Repository\PostRepositoryInterface::class, \AppView\Repository\PostRepository::class);
 
