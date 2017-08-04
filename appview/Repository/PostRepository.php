@@ -9,6 +9,8 @@
 namespace AppView\Repository;
 
 
+use VatGia\Helpers\Collection;
+
 class PostRepository implements PostRepositoryInterface
 {
 
@@ -18,7 +20,7 @@ class PostRepository implements PostRepositoryInterface
             'id' => (int)$id
         ]);
 
-        return $data['vars']['detail'];
+        return new Collection($data['vars']);
     }
 
     public function all()

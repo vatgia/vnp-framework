@@ -1,3 +1,6 @@
-<h1><?php echo $item['title'] ?></h1>
-
-<p><?php echo $item['content'] ?></p>
+<h1><?php echo $item->title; ?></h1>
+<div>
+    <?php
+    echo $item->author['name'];
+    ?>
+</div>
