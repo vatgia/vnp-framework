@@ -9,12 +9,13 @@
     <title>VNP Framework 2017</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-    <link rel="stylesheet" href="/assets/css/main.css"/>
-<!--    <link rel="stylesheet" href=""/>-->
+    <link rel="stylesheet" href="<?php echo asset('css/main.css'); ?>"/>
+    <!--    <link rel="stylesheet" href=""/>-->
     <!--[if lte IE 9]>
-    <link rel="stylesheet" href="/assets/css/ie9.css"/><![endif]-->
+    <link rel="stylesheet" href="<?php echo asset('css/ie9.css'); ?>"/>
+    <![endif]-->
     <noscript>
-        <link rel="stylesheet" href="/assets/css/noscript.css"/>
+        <link rel="stylesheet" href="<?php echo asset('css/noscript.css') ?>"/>
     </noscript>
 </head>
 <body>
@@ -25,7 +26,9 @@
     <!-- Header -->
     <header id="header">
         <div class="logo">
-            <span class="icon fa-diamond"></span>
+            <a href="<?php echo url('index'); ?>">
+                <span class="icon fa-diamond"></span>
+            </a>
         </div>
         <div class="content">
             <div class="inner">
@@ -46,10 +49,10 @@
 <div id="bg"></div>
 
 <!-- Scripts -->
-<script src="/assets/js/jquery.min.js"></script>
-<script src="/assets/js/skel.min.js"></script>
-<script src="/assets/js/util.js"></script>
-<script src="/assets/js/main.js"></script>
+<script src="<?php echo asset('js/jquery.min.js'); ?>"></script>
+<script src="<?php echo asset('js/skel.min.js'); ?>"></script>
+<script src="<?php echo asset('js/util.js'); ?>"></script>
+<script src="<?php echo asset('js/main.js'); ?>"></script>
 
 </body>
 </html>

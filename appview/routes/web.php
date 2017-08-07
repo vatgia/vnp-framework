@@ -5,7 +5,7 @@
  * https://github.com/mrjgreen/phroute
  */
 
-app('route')->get('/', [\AppView\Controllers\HomeController::class, 'render']);
+app('route')->get(['/', 'index'], [\AppView\Controllers\HomeController::class, 'render']);
 
 app('route')->get(
     ['/posts/{slug}-{id:\d+}', 'post_detail'],

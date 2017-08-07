@@ -43,5 +43,6 @@ return [
 
     'providers' => [
 //        \VatGia\Admin\AdminServiceProvider::class,
+        \VatGia\Cache\CacheServiceProvider::class
     ]
 ];
