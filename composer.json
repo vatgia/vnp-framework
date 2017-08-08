@@ -35,6 +35,10 @@
     {
       "type": "vcs",
       "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/admin.git"
+    },
+    {
+      "type": "vcs",
+      "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/cache.git"
     }
   ],
   "minimum-stability": "stable",

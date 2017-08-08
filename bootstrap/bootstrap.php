@@ -60,4 +60,5 @@ $app->bind('shutdown', function () use ($app) {
 register_shutdown_function(app('shutdown'));
 
 $app->bind(\AppView\Repository\PostRepositoryInterface::class, \AppView\Repository\PostRepository::class);
+$app->boot();
 

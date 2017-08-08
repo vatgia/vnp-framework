@@ -3,9 +3,6 @@
 namespace AppView\Controllers;
 
 
-use VatGia\ControllerBase;
-use VatGia\Model;
-
 class HomeController extends FrontEndController
 {
 

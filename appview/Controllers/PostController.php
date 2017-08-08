@@ -11,6 +11,7 @@ namespace AppView\Controllers;
 
 use AppView\Repository\PostRepository;
 use AppView\Repository\PostRepositoryInterface;
+use VatGia\Cache\Facade\Cache;
 
 class PostController extends FrontEndController
 {
@@ -32,6 +33,7 @@ class PostController extends FrontEndController
     public function detail($slug, $id)
     {
         $detail = $this->post->getByID($id);
+
         return view('posts/detail')->render([
             'item' => $detail,
             'abc' => view('welcome')->render()

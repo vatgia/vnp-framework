@@ -16,6 +16,20 @@ return [
     'default' => env('CACHE_DRIVER', 'file'),
 
     /*
+     * -------------------------------------------------------------
+     * Repository cache in app
+     * -------------------------------------------------------------
+     *
+     * When devview call the cache.
+     * System will call model('config/cache')->load()
+     * with cache store and agrumets
+     * Eg:
+     * Cache::put($key, $value)
+     * <-> model('config/cache')->load(['store' => 'file', 'agruments' => [$key, $value]])
+     */
+    'repository' => 'config/cache',
+
+    /*
      * ------------------------------------------------------------
      * Cache Stores
      * ------------------------------------------------------------
