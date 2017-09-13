@@ -5,26 +5,44 @@
  * https://github.com/mrjgreen/phroute
  */
 
-app('route')->get(['/', 'index'], [\AppView\Controllers\HomeController::class, 'render']);
+use VatGia\Helpers\Facade\Route;
 
-
-app('route')->get(
-    ['/posts/{slug}-{id:\d+}', 'post_detail'],
-    [\AppView\Controllers\PostController::class, 'detail']
-);
-
-//Filter
-app('route')->filter('auth', function () use ($app) {
+Route::filter('auth', function () use ($app) {
     if (!app('user')->logged) {
         return redirect('/login');
     }
+
+    return null;
 });
 
-app('route')->get(['/login', 'login'], [AppView\Controllers\Auth\AuthController::class, 'showLoginForm']);
-app('route')->get('/idvg/login-callback', [AppView\Controllers\Auth\AuthController::class, 'loginCallback']);
 
-app('route')->get(['/logout', 'logout'], [AppView\Controllers\Auth\AuthController::class, 'logout']);
+Route::get(
+    ['/', 'index'],
+    [\AppView\Controllers\HomeController::class, 'render'],
+    [
+//        'before' => ['auth'],
+    ]
+);
 
-app('route')->get(['/profile', 'profile'], [AppView\Controllers\Auth\AuthController::class, 'showProfile'], [
-    'before' => ['auth']
-]);
+Route::get(
+    ['/login', 'login'],
+    [AppView\Controllers\Auth\AuthController::class, 'showLoginForm']
+);
+
+Route::get(
+    ['/idvg/login-callback', 'login-callback'],
+    [AppView\Controllers\Auth\AuthController::class, 'loginCallback']
+);
+
+Route::get(
+    ['/logout', 'logout'],
+    [AppView\Controllers\Auth\AuthController::class, 'logout']
+);
+
+Route::get(
+    ['/profile', 'profile'],
+    [AppView\Controllers\Auth\AuthController::class, 'showProfile'],
+    [
+        'before' => ['auth'],
+    ]
+);

@@ -40,7 +40,8 @@ return [
     */
 
     'providers' => [
-//        \VatGia\Admin\AdminServiceProvider::class,
+        //\VatGia\Admin\AdminServiceProvider::class,
         \VatGia\Cache\CacheServiceProvider::class,
+        //\VatGia\Api\ApiServiceProvider::class,
     ],
 ];
