@@ -7,6 +7,7 @@
 
 app('route')->get(['/', 'index'], [\AppView\Controllers\HomeController::class, 'render']);
 
+
 app('route')->get(
     ['/posts/{slug}-{id:\d+}', 'post_detail'],
     [\AppView\Controllers\PostController::class, 'detail']
@@ -27,24 +28,3 @@ app('route')->get(['/logout', 'logout'], [AppView\Controllers\Auth\AuthControlle
 app('route')->get(['/profile', 'profile'], [AppView\Controllers\Auth\AuthController::class, 'showProfile'], [
     'before' => ['auth']
 ]);
-
-
-app('route')->get('/api/posts/{id:\d+}', [\AppView\Controllers\Api\PostDetailController::class, 'process']);
-
-/**
- * App API wrapper
- */
-app('route')->group(
-    [
-        'prefix' => 'api',
-        'before' => '',
-        'after' => ''
-    ],
-    function ($router) {
-
-        $router->any('{group}', [\VatGia\Api\AppRepositoryController::class, 'process']);
-        $router->any('{group}/{name}', [\VatGia\Api\AppRepositoryController::class, 'process']);
-        $router->any('{group}/{child_group}/{name}', [\VatGia\Api\AppRepositoryController::class, 'process']);
-
-    }
-);

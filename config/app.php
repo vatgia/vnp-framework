@@ -19,14 +19,12 @@ return [
     // Bật chế độ debug. Riêng app envi là production thì debug luôn = false
     'debug' => (bool)env('APP_DEBUG') && (env('APP_ENV', 'production') !== 'production'),
 
-    // Show màn hình lỗi trong chế độ debug hay ko
-    'prety_exception' => env('APP_ENV', 'production') !== 'production',
-//    'prety_exception' => true,
-
     //Thư mục app
     'app_dir' => 'app',
 
     'app_uri' => env('APP_URL'),
+
+    'url' => env('APP_URL'),
 
     'debugbar' => true,
 
@@ -43,6 +41,6 @@ return [
 
     'providers' => [
 //        \VatGia\Admin\AdminServiceProvider::class,
-        \VatGia\Cache\CacheServiceProvider::class
-    ]
+        \VatGia\Cache\CacheServiceProvider::class,
+    ],
 ];
