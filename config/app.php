@@ -28,6 +28,16 @@ return [
 
     'debugbar' => true,
 
+    //Ngôn ngữ
+    'locale' => 'vi',
+
+    'locale_fallback' => 'en',
+
+    'locale_path' => '/resources/lang',
+
+    //Tự động lưu lại ngôn ngữ
+    'locale_auto_save' => true,
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -42,6 +52,7 @@ return [
     'providers' => [
         //\VatGia\Admin\AdminServiceProvider::class,
         \VatGia\Cache\CacheServiceProvider::class,
+        \VatGia\Helpers\Translation\TranslationServiceProvider::class,
         //\VatGia\Api\ApiServiceProvider::class,
     ],
 ];

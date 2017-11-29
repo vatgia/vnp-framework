@@ -24,6 +24,8 @@ Route::get(
     ]
 );
 
+Route::get(['/posts/{slug}-{id}', 'post_detail'], [\AppView\Controllers\PostController::class, 'detail']);
+
 Route::get(
     ['/login', 'login'],
     [AppView\Controllers\Auth\AuthController::class, 'showLoginForm']

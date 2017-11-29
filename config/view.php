@@ -7,7 +7,7 @@
  */
 
 return [
-    'dir' => '/appview/views/',
+    'dir' => '/resources/views/',
     'extension' => '.html.php',
     'ob_callback' => function ($content) {
         return $content;
