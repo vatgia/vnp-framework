@@ -24,6 +24,16 @@ Route::get(
     ]
 );
 
+Route::get('/welcome/{lang}', function ($lang) {
+
+    app('translator')->setLocale($lang);
+
+    echo trans('messages.welcome', 'Xin chào đồng chí {name}', ['name' => 'Định']);
+    echo trans('messages.welcome', 'Xin chào đồng chí {name}', ['name' => 'Lê']);
+    echo trans('messages.welcome', 'Xin chào đồng chí {name}', ['name' => 'Mon']);
+
+});
+
 Route::get(['/posts/{slug}-{id}', 'post_detail'], [\AppView\Controllers\PostController::class, 'detail']);
 
 Route::get(
