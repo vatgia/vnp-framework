@@ -54,7 +54,7 @@ return [
         \VatGia\Cache\CacheServiceProvider::class,
         \VatGia\Helpers\Translation\TranslationServiceProvider::class,
         \VatGia\Queue\QueueServiceProvider::class,
-        \AppView\AppViewServiceProvider::class
+        \AppView\AppViewServiceProvider::class,
         \VatGia\Api\ApiServiceProvider::class,
     ],
 ];
