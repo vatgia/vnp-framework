@@ -64,7 +64,7 @@
       "AppView\\": "appview"
     },
     "files": [
-      "appview/helpers/include.php"
+      "appview/Helpers/include.php"
     ]
   },
   "autoload-dev": {

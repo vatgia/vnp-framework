@@ -26,6 +26,10 @@ class PostDetailController extends ApiController
     {
 //        throw new \Exception('Hỏng rồi', 400);
         $detail = $this->postRepository->getByID($id);
+        if (!$detail) {
+            throw new \Exception('This post is not found', 404);
+        }
+
         return $detail;
     }
 

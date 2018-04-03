@@ -40,7 +40,7 @@ class WelcomeCommand extends \VatGia\Helpers\Console\Command
         } else {
 
 //            $lang = $this->output->ask('What your lang? (' . implode('|', array_keys($hello)) . ')');
-//            $en = $this->output->confirm('Are you Emnglish?', true);
+//            $en = $this->output->confirm('Are you Ennglish?', true);
 
             $lang = $this->output->choice('What\'s your language?', array_keys($hello), 'en');
 

@@ -41,6 +41,7 @@ class AuthController extends ControllerBase
         if (property_exists($this, 'useOAuth2') && $this->useOAuth2 == true) {
             return redirect($this->idvgHelper->loginRedirectLink('/'));
         }
+
         return view('auth/login')->render();
     }
 
@@ -73,6 +74,7 @@ class AuthController extends ControllerBase
     public function logout()
     {
         app('user')->logout();
+
         return redirect($this->idvgHelper->logoutLink());
     }
 

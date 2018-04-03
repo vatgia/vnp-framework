@@ -6,7 +6,6 @@
  * Time: 11:20 PM
  */
 
-
 return [
     // Biến môi trường
     'env' => env('APP_ENV', 'development'),
@@ -54,7 +53,8 @@ return [
         \VatGia\Admin\AdminServiceProvider::class,
         \VatGia\Cache\CacheServiceProvider::class,
         \VatGia\Helpers\Translation\TranslationServiceProvider::class,
-        \VatGia\Queue\QueueServiceProvider::class
+        \VatGia\Queue\QueueServiceProvider::class,
+        \AppView\AppViewServiceProvider::class
         //\VatGia\Api\ApiServiceProvider::class,
     ],
 ];

@@ -11,30 +11,51 @@ $app = new \VatGia\Application();
 
 $app->bind('notFoundHandler', function () {
     return function ($e) {
-        throw $e;
+        if (config('app.debug')) {
+            throw $e;
+        } else {
+            //Ghi log lỗi
+            redirect('/');
+        }
     };
 });
 
 $app->bind('methodNotAllowHandler', function () {
     return function ($e) {
-        throw $e;
+        if (config('app.debug')) {
+            throw $e;
+        } else {
+            //Ghi log lỗi
+            redirect('/');
+        }
     };
 });
 
 $app->bind('errorHandler', function () {
     return function ($e) {
-        throw $e;
+        if (config('app.debug')) {
+            throw $e;
+        } else {
+            //Ghi log lỗi
+            redirect('/');
+        }
     };
 });
 
 $app->bind('phpErrorHandler', function () {
     return function ($e) {
-        throw $e;
+        if (config('app.debug')) {
+            throw $e;
+        } else {
+            //Ghi log lỗi
+            redirect('/');
+        }
     };
 });
 
 $app->bind('shutdown', function () use ($app) {
     return function () use ($app) {
+
         //Đóng tất cả kết nối tại đây
         if (db_init::$links) {
             foreach (db_init::$links as &$link) {
@@ -59,6 +80,5 @@ $app->bind('shutdown', function () use ($app) {
  */
 register_shutdown_function(app('shutdown'));
 
-$app->bind(\AppView\Repository\PostRepositoryInterface::class, \AppView\Repository\PostRepository::class);
 $app->boot();
 

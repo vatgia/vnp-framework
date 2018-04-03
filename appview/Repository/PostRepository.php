@@ -9,18 +9,20 @@
 namespace AppView\Repository;
 
 
-use VatGia\Helpers\Collection;
-
 class PostRepository implements PostRepositoryInterface
 {
 
+    /**
+     * @param $id
+     * @return bool|\VatGia\Helpers\Collection
+     */
     public function getByID($id)
     {
-        $data = model('posts/get_post_by_id')->load([
+        $result = model('posts/get_post_by_id')->load([
             'id' => (int)$id
         ]);
 
-        return new Collection($data['vars']);
+        return $result['vars'] ? collect_recursive($result['vars']) : false;
     }
 
     public function all()

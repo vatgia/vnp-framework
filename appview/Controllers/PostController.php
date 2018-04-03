@@ -17,19 +17,25 @@ class PostController extends FrontEndController
 {
 
     /**
-     *
-     * Chứa các hàm thao tác với posts repository
-     * @var PostRepository
-     *
+     * @var PostRepositoryInterface
      */
     protected $post;
 
+    /**
+     * PostController constructor.
+     * @param PostRepositoryInterface $post
+     */
     public function __construct(PostRepositoryInterface $post)
     {
         parent::__construct();
         $this->post = $post;
     }
 
+    /**
+     * @param $slug
+     * @param $id
+     * @return mixed|string
+     */
     public function detail($slug, $id)
     {
         $detail = $this->post->getByID($id);
