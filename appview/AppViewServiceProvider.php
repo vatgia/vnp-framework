@@ -61,7 +61,7 @@ class AppViewServiceProvider extends ServiceProvider
 
     public function registerCommands()
     {
-        $this->app->command([
+        $this->commands([
             WelcomeCommand::class
         ]);
     }

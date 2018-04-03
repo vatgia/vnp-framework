@@ -50,11 +50,14 @@ return [
     */
 
     'providers' => [
-        \VatGia\Admin\AdminServiceProvider::class,
         \VatGia\Cache\CacheServiceProvider::class,
-        \VatGia\Helpers\Translation\TranslationServiceProvider::class,
         \VatGia\Queue\QueueServiceProvider::class,
-        \AppView\AppViewServiceProvider::class,
+        \VatGia\Helpers\Translation\TranslationServiceProvider::class,
+
         \VatGia\Api\ApiServiceProvider::class,
+
+        \VatGia\Admin\AdminServiceProvider::class,
+
+        \AppView\AppViewServiceProvider::class,
     ],
 ];
