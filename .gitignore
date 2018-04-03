@@ -1,5 +1,6 @@
-app
+/app
 /database
+/installer
 composer.phar
 composer.lock
 /vendor

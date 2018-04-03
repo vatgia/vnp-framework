@@ -48,7 +48,9 @@
     "vatgia/core": "dev-master",
     "vatgia/model": "dev-master",
     "vatgia/helpers": "dev-master",
-    "vatgia/cache": "dev-master"
+    "vatgia/cache": "dev-master",
+    "vatgia/queue": "dev-master",
+    "vatgia/admin": "dev-master"
   },
   "require-dev": {
     "phpunit/phpunit": "5.5.*",

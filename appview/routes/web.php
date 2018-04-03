@@ -8,8 +8,10 @@
 use VatGia\Helpers\Facade\Route;
 
 Route::filter('auth', function () use ($app) {
-    if (!app('user')->logged) {
-        return redirect('/login');
+    if (!app('auth')->logged) {
+        redirect('/login');
+
+        exit;
     }
 
     return null;
