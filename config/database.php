@@ -12,10 +12,10 @@ return [
     'username' => env('DATABASE_USERNAME', 'root'),
     'password' => env('DATABASE_PASSWORD', 'root'),
     'slave' => [
-        'host' => env('DATABASE_SLAVE_HOST', 'localhost'),
-        'database' => env('DATABASE_SLAVE_NAME', 'database_name'),
-        'username' => env('DATABASE_SLAVE_USERNAME', 'root'),
-        'password' => env('DATABASE_SLAVE_PASSWORD', 'root'),
+        'host' => env('DATABASE_SLAVE_HOST', env('DATABASE_HOST', 'localhost')),
+        'database' => env('DATABASE_SLAVE_NAME', env('DATABASE_NAME', 'database_name')),
+        'username' => env('DATABASE_SLAVE_USERNAME', env('DATABASE_USERNAME', 'root')),
+        'password' => env('DATABASE_SLAVE_PASSWORD', env('DATABASE_PASSWORD', 'root')),
     ],
     'max_time_slow' => 0.01
 ];

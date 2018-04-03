@@ -39,6 +39,10 @@
     {
       "type": "vcs",
       "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/cache.git"
+    },
+    {
+      "type": "vcs",
+      "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/queue.git"
     }
   ],
   "minimum-stability": "stable",
@@ -49,8 +53,9 @@
     "vatgia/model": "dev-master",
     "vatgia/helpers": "dev-master",
     "vatgia/cache": "dev-master",
-    "vatgia/queue": "dev-master",
-    "vatgia/admin": "dev-master"
+    "vatgia/admin": "dev-master",
+    "vatgia/api": "dev-master",
+    "vatgia/queue": "dev-master"
   },
   "require-dev": {
     "phpunit/phpunit": "5.5.*",

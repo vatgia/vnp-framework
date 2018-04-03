@@ -55,6 +55,6 @@ return [
         \VatGia\Helpers\Translation\TranslationServiceProvider::class,
         \VatGia\Queue\QueueServiceProvider::class,
         \AppView\AppViewServiceProvider::class
-        //\VatGia\Api\ApiServiceProvider::class,
+        \VatGia\Api\ApiServiceProvider::class,
     ],
 ];
