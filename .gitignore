@@ -4,8 +4,9 @@
 composer.phar
 composer.lock
 /vendor
-libraries
+/libraries
 .env
 .env.server
 public/admin
 .gitmodules
+.DS_Store
