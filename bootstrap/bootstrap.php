@@ -34,9 +34,11 @@ $app->bind('methodNotAllowHandler', function () {
 $app->bind('errorHandler', function () {
     return function ($e) {
         if (config('app.debug')) {
+            error_log($e->getMessage());
             throw $e;
         } else {
             //Ghi log lỗi
+            error_log($e->getMessage());
             redirect('/');
         }
     };
@@ -45,9 +47,11 @@ $app->bind('errorHandler', function () {
 $app->bind('phpErrorHandler', function () {
     return function ($e) {
         if (config('app.debug')) {
+            error_log($e->getMessage());
             throw $e;
         } else {
             //Ghi log lỗi
+            error_log($e->getMessage(), 1, config('app.admin_email'));
             redirect('/');
         }
     };

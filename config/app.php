@@ -19,6 +19,9 @@ return [
     // Bật chế độ debug. Riêng app envi là production thì debug luôn = false
     'debug' => (bool)env('APP_DEBUG') && (env('APP_ENV', 'production') !== 'production'),
 
+    //Email nhận thông báo khi có lỗi nghiêm trọng
+    'admin_email' => 'ntdinh1987@gmail.com',
+
     //Thư mục app
     'app_dir' => 'app',
 
