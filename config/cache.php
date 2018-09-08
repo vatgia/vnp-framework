@@ -42,12 +42,14 @@ return [
             'driver' => 'file',
             'path' => storage_path('framework/cache'),
         ],
-        'memcache' => [
-            'driver' => 'memcache',
-            'server' => [
-                'host' => env('MEMCACHED_HOST', '127.0.0.1'),
-                'port' => env('MEMCACHED_PORT', 11211),
-                'weight' => 100,
+        'memcached' => [
+            'driver' => 'memcached',
+            'servers' => [
+                [
+                    'host' => env('MEMCACHED_HOST', '127.0.0.1'),
+                    'port' => env('MEMCACHED_PORT', 11211),
+                    'weight' => 100,
+                ],
             ],
         ],
         'database' => [
@@ -55,4 +57,6 @@ return [
             'table' => 'cache',
         ],
     ],
+
+    'prefix' => env('CACHE_PREFIX', 'vnp_framework_cache')
 ];
