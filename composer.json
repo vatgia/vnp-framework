@@ -14,47 +14,50 @@
     },
     {
       "type": "vcs",
-      "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/framework.git"
+      "url": "ssh://git@git.vatgia.vn/vatgia/framework.git"
     },
     {
       "type": "vcs",
-      "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/core.git"
+      "url": "ssh://git@gitlab.hoidap.vn/vatgia/core.git"
     },
     {
       "type": "vcs",
-      "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/model.git"
+      "url": "ssh://git@git.vatgia.vn/vatgia/model.git"
     },
     {
       "type": "vcs",
-      "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/helpers.git"
+      "url": "ssh://git@git.vatgia.vn/vatgia/helpers.git"
     },
     {
       "type": "vcs",
-      "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/api.git"
+      "url": "ssh://git@git.vatgia.vn/vatgia/api.git"
     },
     {
       "type": "vcs",
-      "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/admin.git"
+      "url": "ssh://git@git.vatgia.vn/vatgia/admin.git"
     },
     {
       "type": "vcs",
-      "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/cache.git"
+      "url": "ssh://git@git.vatgia.vn/vatgia/cache.git"
     },
     {
       "type": "vcs",
-      "url": "ssh://git@gitlab.hoidap.vn:2012/vatgia/queue.git"
+      "url": "ssh://git@git.vatgia.vn/vatgia/queue.git"
     }
   ],
   "minimum-stability": "stable",
   "require": {
     "php": ">=7.0.0",
-    "vatgia/framework": "dev-master",
-    "vatgia/core": "dev-master",
-    "vatgia/model": "dev-master",
-    "vatgia/helpers": "dev-master",
-    "vatgia/cache": "dev-master",
+    "league/fractal": "^0.17.0",
+    "predis/predis": "^1.1",
     "vatgia/admin": "dev-master",
     "vatgia/api": "dev-master",
+    "vatgia/cache": "dev-master",
+    "vatgia/core": "dev-master",
+    "vatgia/framework": "dev-master",
+    "vatgia/helpers": "dev-master",
+    "vatgia/mail": "dev-master",
+    "vatgia/model": "dev-master",
     "vatgia/queue": "dev-master"
   },
   "require-dev": {
