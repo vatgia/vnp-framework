@@ -18,7 +18,7 @@
     },
     {
       "type": "vcs",
-      "url": "ssh://git@gitlab.hoidap.vn/vatgia/core.git"
+      "url": "ssh://git@git.vatgia.vn/vatgia/core.git"
     },
     {
       "type": "vcs",
@@ -56,7 +56,6 @@
     "vatgia/core": "dev-master",
     "vatgia/framework": "dev-master",
     "vatgia/helpers": "dev-master",
-    "vatgia/mail": "dev-master",
     "vatgia/model": "dev-master",
     "vatgia/queue": "dev-master"
   },
