@@ -29,6 +29,8 @@ return [
 
     'url' => env('APP_URL'),
 
+    'time_zone' => 'Asia/Ho_Chi_Minh',
+
     'debugbar' => true,
 
     //Ngôn ngữ
@@ -62,5 +64,7 @@ return [
         \VatGia\Admin\AdminServiceProvider::class,
 
         \AppView\AppViewServiceProvider::class,
+
+        \VatGia\Mail\MailServiceProvider::class
     ],
 ];
