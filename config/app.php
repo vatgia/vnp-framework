@@ -33,6 +33,8 @@ return [
 
     'debugbar' => true,
 
+    'validate_lang' => 'vn',
+
     //Ngôn ngữ
     'locale' => 'vi',
 
@@ -65,6 +67,6 @@ return [
 
         \AppView\AppViewServiceProvider::class,
 
-        \VatGia\Mail\MailServiceProvider::class
+//        \VatGia\Mail\MailServiceProvider::class
     ],
 ];
