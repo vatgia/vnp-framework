@@ -12,6 +12,7 @@ namespace AppView\Controllers;
 use AppView\Repository\PostRepository;
 use AppView\Repository\PostRepositoryInterface;
 use VatGia\Cache\Facade\Cache;
+use VatGia\Phroute\Phroute\RouteCollector;
 
 class PostController extends FrontEndController
 {
@@ -27,6 +28,7 @@ class PostController extends FrontEndController
      */
     public function __construct(PostRepositoryInterface $post)
     {
+
         parent::__construct();
         $this->post = $post;
     }
@@ -36,9 +38,11 @@ class PostController extends FrontEndController
      * @param $id
      * @return mixed|string
      */
-    public function detail($slug, $id)
+    public function detail($slug, $id, PostRepositoryInterface $post)
     {
-        $detail = $this->post->getByID($id);
+//        dd(get_class(app('route')), class_exists(RouteCollector::class));
+
+        $detail = $post->getByID($id);
 
         return view('posts/detail')->render([
             'item' => $detail

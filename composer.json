@@ -43,6 +43,10 @@
     {
       "type": "vcs",
       "url": "ssh://git@git.vatgia.vn/vatgia/queue.git"
+    },
+    {
+      "type": "vcs",
+      "url": "ssh://git@git.vatgia.vn/vatgia/route.git"
     }
   ],
   "minimum-stability": "stable",
@@ -57,7 +61,9 @@
     "vatgia/framework": "dev-master",
     "vatgia/helpers": "dev-master",
     "vatgia/model": "dev-master",
-    "vatgia/queue": "dev-master"
+    "vatgia/queue": "dev-master",
+    "vatgia/route": "dev-master"
+
   },
   "require-dev": {
     "phpunit/phpunit": "5.5.*",

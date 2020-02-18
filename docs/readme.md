@@ -8,10 +8,10 @@ VNP Framework được tạo ra bởi những con người yêu thích công ngh
 
 - Tạo 1 project mới
 
-        composer global config repositories.0 vcs ssh://git@gitlab.hoidap.vn:2012/vnp-framework/installer.git
+        composer global config repositories.0 vcs ssh://git@git.vatgia.vn/vnp-framework/installer.git
         
         //Nếu chạy trên server hoặc trong docker container với user root thì chạy như sau:
-        COMPOSER_ALLOW_SUPERUSER=1 composer global config repositories.0 vcs ssh://git@gitlab.hoidap.vn:2012/vnp-framework/installer.git
+        COMPOSER_ALLOW_SUPERUSER=1 composer global config repositories.0 vcs ssh://git@git.vatgia.vn/vnp-framework/installer.git
 
         composer global require vatgia/installer
 
