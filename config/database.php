@@ -19,15 +19,17 @@ return [
     ],
     'max_time_slow' => 0.01,
 
-     /*
-      Sử dụng khi hệ thống muốn connect vào nhiều database khác nhau.
-      Và muốn chỉ định rõ là connect vào server nào
+    'timezone' => '+07:00',
 
-      Model::useConnection('slaves') -> Connect random vào 1 server slaves
-      Model::useConnection('slaves.web31') -> Connect và server web31 trong nhóm slaves
-      Model::useSlave('web31') -> Connect và server web31 trong nhóm slaves
+    /*
+     Sử dụng khi hệ thống muốn connect vào nhiều database khác nhau.
+     Và muốn chỉ định rõ là connect vào server nào
 
-     */
+     Model::useConnection('slaves') -> Connect random vào 1 server slaves
+     Model::useConnection('slaves.web31') -> Connect và server web31 trong nhóm slaves
+     Model::useSlave('web31') -> Connect và server web31 trong nhóm slaves
+
+    */
     'connections' => [
         'master' => [
             [
@@ -41,8 +43,8 @@ return [
             'web31' => [
                 'host' => env('DATABASE_SLAVE31_HOST', 'localhost'),
                 'database' => env('DATABASE_SLAVE31_NAME', 'database_name'),
-                'username' => env('DATABASE_SLAVE31_USERNAME', 'localhost'),
-                'password' => env('DATABASE_SLAVE31_PASSWORD', 'root'),
+                'username' => env('DATABASE_SLAVE31_USERNAME', 'root'),
+                'password' => env('DATABASE_SLAVE31_PASSWORD', ''),
                 'weight' => 10,
             ],
             'web32' => [
