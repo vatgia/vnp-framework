@@ -14,6 +14,10 @@ use League\Fractal\TransformerAbstract;
 class NewsTransformer extends TransformerAbstract
 {
 
+    public $availableIncludes = [
+        'category'
+    ];
+
     public function transform($item)
     {
 
@@ -22,6 +26,11 @@ class NewsTransformer extends TransformerAbstract
             'teaser' => $item->teaser,
             'content' => $item->content
         ];
+    }
+
+    public function includeCategory($item)
+    {
+        return $this->item($item->category, new CategoryTransformer());
     }
 
 }
