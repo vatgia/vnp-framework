@@ -1,0 +1,81 @@
+{
+  "name": "vatgia/database",
+  "description": "Vật Giá Framework Migration.",
+  "keywords": [
+    "framework",
+    "vatgia",
+    "migration"
+  ],
+  "license": "MIT",
+  "type": "project",
+  "repositories": [
+    {
+      "type": "path",
+      "url": "libraries/**/**/"
+    },
+    {
+      "type": "vcs",
+      "url": "ssh://git@git.vatgia.vn/vatgia/framework.git"
+    },
+    {
+      "type": "vcs",
+      "url": "ssh://git@git.vatgia.vn/vatgia/core.git"
+    },
+    {
+      "type": "vcs",
+      "url": "ssh://git@git.vatgia.vn/vatgia/model.git"
+    },
+    {
+      "type": "vcs",
+      "url": "ssh://git@git.vatgia.vn/vatgia/helpers.git"
+    },
+    {
+      "type": "vcs",
+      "url": "ssh://git@git.vatgia.vn/vatgia/api.git"
+    },
+    {
+      "type": "vcs",
+      "url": "ssh://git@git.vatgia.vn/vatgia/admin.git"
+    },
+    {
+      "type": "vcs",
+      "url": "ssh://git@git.vatgia.vn/vatgia/cache.git"
+    },
+    {
+      "type": "vcs",
+      "url": "ssh://git@git.vatgia.vn/vatgia/queue.git"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "robmorgan/phinx": "^0.9.2",
+    "vatgia/framework": "dev-master",
+    "fzaninotto/faker": "^1.8"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "classmap": [
+    ],
+    "psr-4": {
+    },
+    "files": [
+    ]
+  },
+  "autoload-dev": {
+    "classmap": [
+    ],
+    "files": [
+      "bootstrap.php"
+    ]
+  },
+  "scripts": {
+    "database": "php vendor/bin/phinx"
+  },
+  "config": {
+    "process-timeout": 1200,
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
+  }
+}
