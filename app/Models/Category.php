@@ -1,12 +1,12 @@
 <?php
 /**
- * Created by ntdinh1987.
- * User: ntdinh1987
- * Date: 12/5/16
- * Time: 2:54 PM
+ * Created by PhpStorm.
+ * User: apple
+ * Date: 2/18/20
+ * Time: 09:59
  */
 
-namespace App\Models\Categories;
+namespace App\Models;
 
 
 use VatGia\Model\Model;

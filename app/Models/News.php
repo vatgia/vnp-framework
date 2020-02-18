@@ -33,4 +33,14 @@ class News extends Model
             Tags::class
         );
     }
+
+    public function category()
+    {
+        return $this->hasOne(
+            __FUNCTION__,
+            Category::class,
+            'cat_id',
+            'pos_category_id'
+        );
+    }
 }

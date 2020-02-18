@@ -62,15 +62,10 @@ class CreateTablePosts extends AbstractMigration
                 ColumnOptions::LIMIT => 11,
                 ColumnOptions::DEFAULT => 0
             ])
-            ->addColumn('pos_type', ColumnTypes::VARCHAR)
-            ->addColumn('pos_created_at', ColumnTypes::TIMESTAMP, [
-                ColumnOptions::DEFAULT => 'CURRENT_TIMESTAMP'
-            ])
-            ->addColumn('pos_updated_at', ColumnTypes::TIMESTAMP, [
-                ColumnOptions::NULL => true,
-                ColumnOptions::UPDATE => 'CURRENT_TIMESTAMP'
-            ])
-            ->save();
+            ->addColumn('pos_type', ColumnTypes::VARCHAR);
+
+        timestamp_fields($table, 'pos');
+        $table->save();
     }
 
     public function down()

@@ -41,8 +41,7 @@ class PostController extends FrontEndController
         $detail = $this->post->getByID($id);
 
         return view('posts/detail')->render([
-            'item' => $detail,
-            'abc' => view('welcome')->render()
+            'item' => $detail
         ]);
     }
 }
