@@ -2,6 +2,7 @@ Options +FollowSymLinks
 RewriteEngine On
 RewriteBase /
 
+RewriteRule ^vendor/maximebf/debugbar/src/DebugBar/Resources/(.*) /debugbar/load_resource.php?resource=$1
 
 # HOME
 RewriteCond %{REQUEST_FILENAME} !-f
