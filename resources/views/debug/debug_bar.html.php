@@ -4,8 +4,7 @@ $arrayDebug = debug()->output();
 
 if (config('app.debug') == true || getValue('debug') == 1) {
 
-    if (getValue('debugbar')) {
-
+    if (config('app.debugbar')) {
         try{
             $debugBar = new \DebugBar\StandardDebugBar();
             $debugBarRender = $debugBar->getJavascriptRenderer();

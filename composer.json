@@ -67,7 +67,8 @@
   },
   "require-dev": {
     "phpunit/phpunit": "5.5.*",
-    "wanfeiyy/dd": "*"
+    "wanfeiyy/dd": "*",
+    "maximebf/debugbar": "1.*"
   },
   "autoload": {
     "classmap": [
