@@ -13,8 +13,12 @@ return [
             'id' => [
                 'title' => 'ID bài viết',
                 'rule' => 'required|integer'
+            ],
+            'category_id' => [
+                'title' => 'Category',
+                'default' => 100
             ]
-        ]
+        ],
     ],
     'posts/index' => [
         'title' => 'Danh sách bài viết',

@@ -1,6 +1,5 @@
 /installer
 composer.phar
-composer.lock
 /vendor
 /libraries
 .env

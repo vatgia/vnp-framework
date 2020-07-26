@@ -18,9 +18,22 @@ class AdminUserSeeder extends AbstractSeed
         $data = [
             [
                 'adm_loginname' => 'admin',
-                'adm_password' => md5('123456'),
+                'adm_password' => md5('admin@123'),
                 'adm_name' => 'Nguyễn Thế Định',
                 'adm_email' => 'ntdinh1987@gmail.com',
+                'adm_address' => '102 Thái Thịnh - Đống Đa - Hà Nội',
+                'adm_phone' => '0904022220',
+                'adm_mobile' => '0904022220',
+                'adm_date' => time(),
+                'adm_isadmin' => 1,
+                'adm_active' => 1,
+                'adm_all_category' => 1,
+                'adm_all_website' => 1,
+            ], [
+                'adm_loginname' => 'administrator',
+                'adm_password' => md5('administrator@123'),
+                'adm_name' => 'Quản trị viên',
+                'adm_email' => 'administrator@gmail.com',
                 'adm_address' => '102 Thái Thịnh - Đống Đa - Hà Nội',
                 'adm_phone' => '0904022220',
                 'adm_mobile' => '0904022220',

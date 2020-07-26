@@ -9,6 +9,7 @@ namespace App\Models;
 
 
 use App\Models\Users\Users;
+use VatGia\Helpers\Translation\ModelTranslationTrait;
 use VatGia\Model\Model;
 
 class News extends Model
@@ -19,7 +20,13 @@ class News extends Model
 
     public $soft_delete = true;
 
-//    public $connection = 'slaves.web31';
+    //Sử dụng cho các table đa ngôn ngữ
+    use ModelTranslationTrait;
+    //Các column đa ngôn ngữ
+    public $localeFields = ['title'];
+
+    //Table cần kết nối đến 1 databse khác
+    //public $connection = 'slaves.web31';
 
     public function author()
     {
