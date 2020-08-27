@@ -3,7 +3,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class StartDatabase extends AbstractMigration
+class AddSettingLabel extends AbstractMigration
 {
     /**
      * Change Method.
@@ -28,6 +28,8 @@ class StartDatabase extends AbstractMigration
      */
     public function change()
     {
-        $this->execute(file_get_contents(dirname(__FILE__) . '/../sql/database_start.sql'));
+        $table = $this->table('settings_website');
+        $table->addColumn('swe_label', 'string', ['limit' => 255]);
+        $table->update();
     }
 }

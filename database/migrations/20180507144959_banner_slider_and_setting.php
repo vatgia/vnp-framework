@@ -3,7 +3,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class StartDatabase extends AbstractMigration
+class BannerSliderAndSetting extends AbstractMigration
 {
     /**
      * Change Method.
@@ -28,6 +28,6 @@ class StartDatabase extends AbstractMigration
      */
     public function change()
     {
-        $this->execute(file_get_contents(dirname(__FILE__) . '/../sql/database_start.sql'));
+        $this->execute(file_get_contents(dirname(__FILE__) . '/../sql/banner_and_settings.sql'));
     }
 }
