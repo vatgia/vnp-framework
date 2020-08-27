@@ -45,6 +45,19 @@ return [
     //Tự động lưu lại ngôn ngữ
     'locale_auto_save' => true,
 
+    'locales' => [
+        'vi' => [
+            'code' => 'vi',
+            'name' => 'Tiếng Việt',
+            'icon' => '/assets/v2/images/icons/flags/vietnam.png'
+        ],
+//        'en' => [
+//            'code' => 'en',
+//            'name' => 'English',
+//            'icon' => '/assets/v2/images/icons/flags/us.png'
+//        ],
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

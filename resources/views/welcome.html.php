@@ -4,7 +4,7 @@
     html5up.net | @ajlkn
     Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html lang="<?= locale() ?>">
 <head>
     <title>VNP Framework 2017</title>
     <meta charset="utf-8"/>
@@ -17,6 +17,17 @@
     <noscript>
         <link rel="stylesheet" href="<?php echo asset('css/noscript.css') ?>"/>
     </noscript>
+    <style>
+        .links > a {
+            color: #636b6f;
+            padding: 0 25px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body>
 
@@ -38,6 +49,13 @@
         </div>
     </header>
 
+    <div class="links">
+        <a href="http://git.vatgia.vn/vnp-framework/docs">Docs</a>
+        <a href="https://vnp-framework.com">Home Page</a>
+        <a href="https://vnp-framework.com/news">News</a>
+        <a href="https://vnp-framework.com/blog">Blog</a>
+        <a href="https://github.com/vatgia/vnp-framework">GitHub</a>
+    </div>
 
     <!-- Footer -->
     <footer id="footer">
