@@ -25,7 +25,7 @@ class ModuleSeeder extends AbstractSeed
             ],
             [
                 'mod_id' => 25,
-                'mod_name' => 'Lịch sử quản trị',
+                'mod_name' => 'Lịch sử quản trị viên',
                 'mod_path' => 'admin_logs',
                 'mod_listname' => 'Danh sách',
                 'mod_listfile' => 'listing.php',
