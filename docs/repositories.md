@@ -4,42 +4,58 @@
 
 ### Khai báo repo
 
-Một thư mục repository sẽ là một tập hợp nhiều file php, mỗi file sẽ có 1 xử lý khác nhau nhưng đều liên quan đến một đối tượng cụ thể. Đối tượng này gọi là `Root Model`.
+Một thư mục repository sẽ là một tập hợp nhiều file php, mỗi file sẽ có 1 logic xử lý khác nhau nhưng đều liên quan đến một công việc cụ thể.
 
-**Chú ý: Một repo sẽ chỉ liên quan đến một Model cụ thể (Root Model)**
 
-Trong tài liệu này là đối tượng `Product` hay model `Product`
+Giả sử ta có một repository lấy thông tin sản phẩm theo id bạn làm như sau:
 
-Giả sử muốn một logic để lấy một sản phẩm theo id bạn làm như sau:
+- Bước 1: Tạo folder `products` trong thư mục `app/Repositories`. ***Trong folder `products` sẽ chứa các file xử lý liên quan đến duy nhất đối tượng Product đang nói tới ( Chú ý điều này )***
 
-- Bước 1: Tạo folder `products` trong thư mục `app/repositories`. ***Trong folder `products` sẽ chứa các file xử lý liên quan đến duy nhất đối tượng Product đang nói tới ( Chú ý điều này )***
-
-- Bước 2: Tạo một file `app/repositories/products/get_by_id.php`. Tên file đặt làm sao cho dễ nhớ nhất có thể. Tất cả các file trong `repositories` đều tồn tại 1 biến `$input` là một array chứa các tham số đầu vào. Trong trường hợp này là `id`.
+- Bước 2: Tạo một file `app/Repositories/products/get_by_id.php`. Tên file đặt làm sao cho dễ nhớ nhất có thể. Tất cả các file trong `repositories` đều tồn tại 1 biến `$input` là một array chứa các tham số đầu vào. Trong trường hợp này là `id`.
 
 `app/repositories/products/get_by_id.php`
+    
+    $vars = null;
+    $product_id = (int) input('id');
+    //Hoặc
+    $product_id = (int) ($input['id'] ?? 0);
+    
+    $product = Product::findById($product_id);
 
-    $productId = (int) $input['id];
-    $product = Product::where('id = '. $productId)->select();
-
-    // Bắt buộc phải return ra một mảng có key là vars chứa tất cả dữ liệu mà bạn muốn trả về. Trong trường hợp này tôi muốn trả về  biến $product
+    // Bắt buộc phải return ra một mảng có key là vars chứa tất cả dữ liệu mà bạn muốn trả về.
+    if($product)
+    {
+        $vars = transformer_item($product, new App/Transformers/ProductTranssformer, ['images', 'category']);
+    }
+    
 
     return [
-      'vars' => $product
+      'vars' => $vars
+      
     ];
 
-- Bước 3: Tạo file `config.php` trong `app/repositories/products` để đăng ký file `get_by_id` với hệ thống, và có nội dung như sau
+- Bước 3: Tạo file `config.php` trong `app/Repositories/products` để đăng ký file `get_by_id` với hệ thống, và có nội dung như sau
 
-`app/repositories/products/config.php`
+`app/Repositories/products/config.php`
 
     return [
       'products/get_by_id' => [
-        'title' => 'Lấy chi tiết một sản phẩm theo ID'
+        'title' => 'Lấy chi tiết một sản phẩm theo ID',
+        'input' => [
+            'title' => 'ID sản phẩm cần lấy',
+            'rule' => 'required|integer'
+        ]
       ]
     ];
 
 ### Sử dụng repo
 
-    // Sử dụng hàm `model` để lấy dữ liệu từ repo
-    $data = model('products/get_by_id')->load(['id' => 10]);
-
-    $product = $data['vars'];
+    // Sử dụng hàm `repository` để lấy dữ liệu từ repo
+    $response = repository('products/get_by_id')->get(['id' => 10]);
+    
+    if($response['vars'])
+    {
+        $product = collect($data['vars']);        
+    }else{
+        throw new \RuntimeException('Sản phẩm không tồn tại', 404);
+    }

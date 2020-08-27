@@ -3,7 +3,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class AddColumnAhihiTableTest extends AbstractMigration
+class ModuleGroup extends AbstractMigration
 {
     /**
      * Change Method.
@@ -28,8 +28,13 @@ class AddColumnAhihiTableTest extends AbstractMigration
      */
     public function change()
     {
-//        $table = $this->table('test');
-//        $table->addColumn('ahihi', 'string', ['limit' => 100]);
-//        $table->update();
+
+        $table = $this->table('modules');
+        $table->addColumn('mod_group', ColumnTypes::STRING, [
+            ColumnOptions::LIMIT => 100,
+            ColumnOptions::DEFAULT => ''
+        ]);
+        $table->update();
+
     }
 }

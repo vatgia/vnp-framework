@@ -183,3 +183,29 @@ Quan hệ dạng 1 - nhiều: Ví dụ ta có quan hệ 1 danh mục có nhiều
             'cat_id'
         );
     }
+    
+## Quan hệ n - n
+
+Quan hệ dạng nhiều - nhiều: Ví dụ ta có quan hệ 1 bài viết có nhiều tag và 1 tags cũng có thể thuộc nhiều bài viết. Ta viết trong News Model như sau:
+
+    
+    public function childs()
+    {
+        return $this->belongToMany(
+            __FUNCTION__,
+            Tags::class,
+            'news_tags', Không khai báo sẽ tự động nhận là table1_table2
+            'tag_id', Không khai báo sẽ tự tạo dạng table2->prefix _ id
+            'new_id', Không khai báo sẽ tự tạo dạng table1->prefix _ id
+            'tags_id', Không khai báo sẽ tự tạo dạng table2 _ id
+            'news_id' Không khai báo sẽ tự tạo dạng table1 _ id
+        );
+    }
+    
+    
+## Must have
+
+Nếu Model News có relationship category. Ta muốn tìm những tin tức bắt buộc phải có category ta sử dụng phương thức mustHave
+
+    
+    $items = News::mustHave(['category'])->all();

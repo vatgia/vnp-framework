@@ -1,124 +1,54 @@
-# Validator
+# Full document [Gump](https://github.com/Wixel/GUMP)
 
-  Validate dữ liệu đầu vào, hỗ trợ custom thông báo lỗi
+Ở framework này. Chủ yếu ta sẽ validate input tại file config của repository
 
-# Cài đặt
+Ví dụ:
 
-    composer require blackbear/validation
+    'inbox/detail' => [
+        'title' => 'Chi tiết cuộc chat',
+        'input' => [
+            'user_id' => [
+                'title' => 'User id',
+                'rule' => 'required|integer' //Bắt buộc truyền và phải là số nguyên
+            ],
+            'classified_id' => [
+                'title' => 'id tin đăng',
+                'rule' => 'required|integer' //Bắt buộc truyền và phải là số nguyên
+            ],
+            'append_mes' => [
+                'title' => 'Lấy các tin mới gửi',
+                'rule' => 'integer', //Không bắt buộc truyền nhưng phải là số nguyên
+                'default' => 0 //Giá trị mặc định
+            ],
+        ]
+    ]
+    
 
-# Namespace
+Hoặc ta có thể validate tại controller bằng cách như sau
 
-		use BlackBear\Validation\Validator;
+    $gump = new GUMP();
 
-# Ví dụ
-
-		use BlackBear\Validation\Validator;
-
-    $data = [
-			'age' => 20,
-			'email' => 'cong.itsoft@gmail.com'
-		];
-		$rules = [
-			'age' => 'required',
-			'email' => 'email|required'
-		];
-		$messages = [
-			'age.required' => 'Please fill age',
-			'email.email' => 'Please fill email'
-		];
-
-		$validator = new Validator($data, $rules, $messages);
-
-    if ($validator->passes()) {
-      echo 'Validate successful';
+    // set validation rules
+    $gump->validation_rules([
+        'username'    => 'required|alpha_numeric|max_len,100|min_len,6',
+        'password'    => 'required|max_len,100|min_len,6',
+        'email'       => 'required|valid_email',
+        'gender'      => 'required|exact_len,1|contains,m;f',
+        'credit_card' => 'required|valid_cc'
+    ]);
+    
+    // set field-rule specific error messages
+    $gump->set_fields_error_messages([
+        'username'      => ['required' => 'Tên đăng nhập là bắt buộc'],
+        'email'         => ['valid_email' => 'Email không đúng định dạng']
+    ]);
+ 
+    $valid_data = $gump->run($_POST);
+    
+    if ($gump->errors()) {
+        var_dump($gump->get_readable_errors()); // ['Field <span class="gump-field">Somefield</span> is required.'] 
+        // or
+        var_dump($gump->get_errors_array()); // ['field' => 'Field Somefield is required']
     } else {
-      echo 'Validate fails'
+        var_dump($valid_data);
     }
-
-# Lấy thông báo lỗi
-
-  Thông báo lỗi sẽ được lưu trữ dưới dạng 1 mảng
-
-    $errors = $validator->getErrors();
-
-# Add custom rule
-
-		$validator = new Validator();
-
-    // Thêm rule tên là bigger
-		$validator->addExtension('bigger', function($attribue, $value) {
-			return $value > $attribue[0];
-		});
-
-    // Sử dụng
-    $data = [
-			'age' => 20,
-			'email' => 'cong.itsoft@gmail.com'
-		];
-		$rules = [
-			'age' => 'required|bigger:18',
-			'email' => 'email|required'
-		];
-		$messages = [
-			'age.required' => 'Please fill age',
-			'email.email' => 'Please fill email'
-		];
-
-    $validator->setData($data)
-				    ->setRules($rules)
-		        ->setMessages($messages);
-
-    if ($validator->passes()) {
-      echo 'Validate successful';
-    } else {
-      echo 'Validate fails'
-    }
-
-# Public method
-
-`setData(array $data)`: Thêm data muốn validate
-
-`setRules(array $rules)`: Cấu hình rule validate cho data
-
-`setMessages(array $messages)`: Cấu hình thông báo lỗi
-
-`passes()`: Kiểm tra data đã được validate thành công
-
-`fails()`: Kiểm tra data đã được validate không thành công
-
-# Default rules
-
-`required`
-
-`email`
-
-`exception`
-
-`ip`
-
-`min`: min:20
-
-`max`: max:20
-
-`in_array`: in_array:1,2,3
-
-`not_in_array`: not_in_array:1,2,3
-
-`between`: between:10,100
-
-`regexp`: regexp:/^([\d]+)$/
-
-`url`
-
-`int`
-
-`float`
-
-`double`
-
-`boolean`
-
-`nullable`
-
-`equals`: equals:8
-
