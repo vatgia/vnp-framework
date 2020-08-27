@@ -1,0 +1,140 @@
+/* CSS Document */
+body{
+	margin:0px;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:11px;
+}
+body *{
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:11px;
+}
+.bold{
+	font-weight:bold;
+	color:#15428B;
+}
+.price{ font-weight:bold; margin-top:2px; color:#FF0000}
+.bg{
+	background:url(../images/grid3-hrow.gif) repeat-x scroll 0 0 transparent;
+	font-family:Tahoma, Verdana; font-size:11px;
+}
+.table{ border-collapse:collapse;}
+.table td{
+	color:#15428B;
+	font-family:Tahoma,Verdana,Arial;
+	font-size:11px;
+}
+.textBold{
+	font-weight:bold;
+	color:#15428B;
+}
+
+#dhtmltooltip{
+	border-right: black 1px solid;
+	padding-right: 4px;
+	border-top: black 1px solid;
+	padding-left: 4px;
+	font-size: 10pt;
+	z-index: 100;
+	filter: alpha(opacity=99);
+	-moz-opacity: .99;
+	-khtml-opacity: .99;
+	opacity: .99;
+	left: -300px;
+	visibility: hidden;
+	padding-bottom: 4px;
+	border-left: black 1px solid;
+	padding-top: 4px;
+	border-bottom: black 1px solid;
+	font-family: Arial;
+	position: absolute;
+	background-color: lightyellow;
+}
+#dhtmlpointer{
+	z-index: 101;
+	left: -300px;
+	visibility: hidden;
+	position: absolute;
+}
+/*********** Form ************/
+form{
+	padding:0px;
+	margin:0px;
+}
+.form_asterisk{
+	font-size:12px;
+	color:#FF0000;
+}
+.form_button{
+	border:none;
+	font-size:11px;
+	color:#D93404;
+	padding-bottom:2px;
+	width:85px;
+	height:20px;
+}
+.form_button_arrow{
+	font-family:Arial, Helvetica;
+	font-size:11px;
+	font-weight:normal;
+	width:26px;
+}
+.form_control, .form_search{
+	font-family:Tahoma, Verdana, Arial;
+	padding:1px;
+}
+.form_control{
+	background-color:#F2F2F2;
+	border:1px #CCCCCC solid;
+	font-size:11px;
+}
+.form_errorMsg{
+	font-size:8pt;
+	color:#FF0000;
+}
+.form_name, .form_name_2{
+	font-size:12px;
+	color:#004000;
+	text-align:right;
+}
+.form_name_2{
+	white-space:nowrap;
+}
+.form_name_3{
+	font-size:11px;
+	font-weight:bold;
+	color:#004000;
+	white-space:nowrap;
+	text-align:right;
+}
+.form_search{
+	font-size:11px;
+	color:#004000;
+	text-decoration:none;
+}
+.form_text{
+	font-size:11px;
+	color:#004000;
+}
+.form_text_note{
+	font-size:10px;
+	color:#666666;
+}
+/*****----- End Form -----******/
+
+#iBus{
+   width:130px;
+}
+.select_stutus_pay{
+   float:left;
+   padding-left:200px;
+   width:200px;
+}
+.nav_pay_method{
+   padding-left:500px;
+}
+.clear{
+   clear: both;
+}
+.button_accept{
+   padding-left:210px;
+}

@@ -1,0 +1,71 @@
+/* CSS Document */
+.template1 .t1{
+	background:url(../template/1.jpg) no-repeat left;
+	padding-left:5px;
+}
+.template1 .t2{
+	background:url(../template/1.jpg) no-repeat right;
+	padding-top:5px;
+	padding-bottom:8px;
+	color:#15428B;
+	font-family:tahoma,arial,verdana,sans-serif;
+	font-size:11px;
+	font-weight:bold;
+	padding-left:7px;
+}
+.template1 .t3{
+	border-bottom:solid 1px #99BBE8;
+	border-left:solid 1px #99BBE8;
+	border-right:solid 1px #99BBE8;
+	padding:5px;
+	padding-right:7px;
+}
+
+/*------------------------------------------*/
+.template2{
+}
+.template2 .t4 *{ font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px;}
+.template2 .t1{
+	background:url(../template/2.jpg);
+	padding-left:5px;
+	height:30px;
+	padding-top:1px;
+}
+.template2 .t2{
+	background:url(../template/3.jpg) no-repeat left;
+	padding-left:10px;
+	float:left;
+	margin-left:5px;
+}
+.template2 .t3{
+	background:url(../template/3.jpg) no-repeat right;
+	padding-top:5px;
+	padding-bottom:8px;
+	padding-right:10px;
+	color:#15428B;
+	font-family:tahoma,arial,verdana,sans-serif;
+	font-size:11px;
+	font-weight:bold;
+	float:left;
+}
+.template2 .t3 a{ text-decoration:none; color:#15428B}
+.template2 .t5{
+	background:url(../template/3.jpg) no-repeat left;
+	padding-left:10px;
+	float:left;
+	margin-left:5px;
+}
+.template2 .t6{
+	background:url(../template/3.jpg) no-repeat right;
+	padding-top:4px;
+	
+	padding-right:10px;
+	color:#15428B;
+	font-family:tahoma,arial,verdana,sans-serif;
+	font-size:11px;
+	font-weight:bold;
+	float:left;
+}
+.template2 input{ font-family:Verdana, Geneva, sans-serif; font-size:12px; border:solid 1px #99BBE8; padding-left:3px; color:#333;}
+.template2 .bottom{ background:#1C396F; font-family:Tahoma, Geneva, sans-serif; color:#FFF; font-weight:bold; font-size:11px;}
+.template2 form{ margin:0px; padding:0px;}

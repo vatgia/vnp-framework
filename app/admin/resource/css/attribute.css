@@ -1,0 +1,13 @@
+.table_define{
+	border-collapse: collapse;
+	border-color: #99BBE8;
+}
+.table_define .att{	
+	font-weight: bold;
+	background: #f2f2f2;
+	padding: 5px;
+}
+.table_define .atv{
+	padding: 2px;
+	padding-right: 10px;
+}

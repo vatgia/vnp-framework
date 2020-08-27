@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places,geometry,weather"></script>
+	<link rel="stylesheet" href="spinner/jquery-ui.css" />
+	<script src="infobox.js"></script>
+	<script src="spinner/jquery-1.9.1.js"></script>
+	<script src="spinner/jquery.mousewheel.js"></script>
+	<script src="spinner/jquery-ui.js"></script>
+	<link href="default.css" rel="stylesheet">
+	<script>
+		$(function() {
+			$( ".spinner" ).spinner({  
+				change:function(){
+					google.maps.event.trigger(this,'change');
+				},
+				stop: function(){
+					google.maps.event.trigger(this,'change');
+				},
+			});
+		})
+	</script>
+    <script src="gmap.js"></script>
+  </head>
+  <body>
+	<div>
+		<!--<div style="height:1px;"></div>
+		<div class="title">
+			<span>Google</span>
+		</div>-->
+		<div id="dialog_box" class="box">
+			<div class="wrapper">
+				<div class="table">
+					<div class="row">
+						<div style="width:95px; border-right:1px solid #aaa;" class="cell setting">
+							<div class="wrapper" style="padding-right:10px;position:relative;">
+								<div class="overlay dummy" style="position:absolute;z-index:2;"></div>
+								<div class="size">
+									<label>Width</label>
+									<input id="width" value="600" class="spinner"/>&nbsp;<span class="measure">px</span>
+								</div>
+								<div class="size">
+									<label>Height</label>
+									<input id="height" value="430" class="spinner"/>&nbsp;<span class="measure">px</span>
+								</div>
+								<div class="size">
+									<label>Zoom</label>
+									<input id="zoom" style="width:27px;" value="8" class="spinner"/>
+								</div>
+								<button onclick="$('#settings_overlay .layers').each(function(){ $(this).prop('checked',map.get(this.id)); }); $('#dialog_box').addClass('shadow');$('#settings_overlay,.dummy').fadeIn(500);" class="radio big" id="settings" value="settings"><img src="images/settings.png"/><div>Settings</div></button>
+								<button class="radio big" id="maptype" value="Sattelite"><img id="maptype_img" src="images/roadmap.png"/><div id="maptype_title">Map</div></button>
+								<button onclick="$('#layers_overlay .layers').each(function(){ $(this).prop('checked',objects[this.id]&&objects[this.id].length);});$('#dialog_box').addClass('shadow');$('#layers_overlay,.dummy').fadeIn(500);" class="radio big" id="layers" value="layers"><img src="images/layers.png"/><div>Layers</div></button>
+								
+								<button class="radio small object" id="Marker" value="Marker"  title="Marker"><img src="images/marker_mini.png"/></button>
+								<button class="radio small object" id="Text" value="Text"  title="Text"><img src="images/text_mini.png"/></button>
+								<button class="radio small object" id="Circle" value="Ellipse"  title="Line"><img src="images/circle_mini.png"/></button>
+								<button class="radio small object" id="Rectangle" value="Rectangle"  title="Line"><img src="images/rect_mini.png"/></button>
+								<button class="radio small object" id="Polyline" value="Line"  title="Line"><img src="images/line_mini.png"/></button>
+								<button class="radio small object" id="Polygon" value="Area"  title="Area"><img src="images/area_mini.png"/></button>
+							</div>
+						</div>
+						<div class="cell">
+							<div class="wrapper" style="padding-left:10px;position:relative;">
+								<div class="overlay dummy" style="position:absolute;z-index:2;width:10px;right:none;"></div>
+								<div style="position:relative;padding:3px 0px;">
+									<div class="overlay dummy" style="position:absolute;z-index:2;"></div>
+									<table cellspacing="0" cellpadding="0" border="0" style="width:100%;vertical-align:middle;">
+										<tr>
+											<td style="width:32px;"><img src="images/search.png"/></td>
+											<td>
+												<div id="target_box">
+													<input id="target" type="text" placeholder="Search">
+												</div>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<div style=" height:475px;" id="map-canvas"></div>
+								<div id="finish_path"style="display:none;position:absolute;margin-top:-40px;margin-left:5px;">
+									<input onclick="$('.object').removeClass('active'); $('#finish_path').hide();mode='';" type="button" value="Finish"/>&nbsp;
+									<input onclick="$('.object').removeClass('active'); deleteObject(currentObject.type,objects[currentObject.type].indexOf(currentObject));$('#finish_path').hide();mode='';" type="button" value="Cancel"/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<div id="layers_overlay" class="overlay">
+		<div class="overlay_content" style="height:100px;margin-top:-50px;">
+			<label class="settings"><input type="checkbox" id="TrafficLayer" class="layers"/>Traffic layer</label>
+			<label class="settings"><input type="checkbox" id="WeatherLayer" class="layers"/>Weather layer</label>
+			<div style="text-align:center;">
+				<input class="btn" onclick="$('#dialog_box').removeClass('shadow');$('#layers_overlay,.dummy').fadeOut(500); $('#layers_overlay .layers').each(function(){ var d=mode; mode=this.id; if($(this).prop('checked'))clickAddObject({});else deleteObject(this.id); mode = d;});" type="button" value="OK"/>
+				<input class="btn" onclick="$('#dialog_box').removeClass('shadow');$('#layers_overlay,.dummy').fadeOut(500);" type="button" value="Cancel"/>
+			</div>
+		</div>
+	</div>
+	<div id="settings_overlay" class="overlay">
+		<div class="overlay_content" style="height:320px;margin-top:-175px;padding-bottom:10px">
+			<!-- <label class="settings"><input type="checkbox" id="disableDefaultUI" class="layers"/>disableDefaultUI</label> -->
+			<label class="settings"><input type="checkbox" id="mapTypeControl" class="layers"/>Show map type control</label>
+			<label class="settings"><input type="checkbox" id="zoomControl" class="layers"/>Show zoom control</label>
+			<label class="settings"><input type="checkbox" id="rotateControl" class="layers"/>Show rotate control</label>
+			<label class="settings"><input type="checkbox" id="scaleControl" class="layers"/>Show scale control</label>
+			<label class="settings"><input type="checkbox" id="streetViewControl" class="layers"/>Show street view control</label>
+			<label class="settings"><input type="checkbox" id="panControl" class="layers"/>Show pan control</label>
+			<label class="settings"><input type="checkbox" id="overviewMapControl" class="layers"/>Show map overview control</label>
+			<label class="settings"><input type="checkbox" id="draggable" class="layers"/>Map dragging is enabled</label>
+			<label class="settings"><input type="checkbox" id="disableDoubleClickZoom" class="layers"/>Disable double click zoom</label>
+			<div style="text-align:center;">
+				<input class="btn" onclick="$('#dialog_box').removeClass('shadow');$('#settings_overlay,.dummy').fadeOut(500); $('#settings_overlay .layers').each(function(){ if($(this).prop('checked'))map.set(this.id,true);else map.set(this.id,false);});" type="button" value="OK"/>
+				<input class="btn" onclick="$('#dialog_box').removeClass('shadow');$('#settings_overlay,.dummy').fadeOut(500);" type="button" value="Cancel"/>
+			</div>
+		</div>
+	</div>
+  </body>
+</html>

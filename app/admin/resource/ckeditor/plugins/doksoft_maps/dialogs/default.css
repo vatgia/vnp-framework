@@ -1,0 +1,142 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  font-size:0.9em;
+}
+.setting input,#target { 
+	padding:4px 0px 4px 7px; 
+	font-size:0.7em;
+}
+#map-canvas, #map_canvas {
+  height: 100%;
+}
+.box{
+	 /*margin:10px;*/
+	 /*border:1px solid #000;*/
+	 z-index:1;
+	 position:relative;
+}
+.box>.wrapper {
+	padding:10px;
+}
+.table {
+	display:table; 
+	width:100%;
+}
+.row {
+	display:table-row;
+}
+.cell {
+	display:table-cell;
+	vertical-align:top;
+}
+.title {
+	text-align:center;
+	margin-bottom:-18px;
+	z-index:99;
+	position:relative;
+}
+.title span {
+	border:1px solid #000;
+	padding:0px 5px;
+	background:#fff;
+	font-weight:700;
+}
+button.radio {
+	background:#fff;
+	border:1px solid #bbb;
+	margin-bottom:5px;
+	margin-left:0;
+}
+button.radio img {
+	opacity:0.7;
+}
+button.radio.active img {
+	opacity:1.0;
+}
+button.radio div {
+	font-size:0.8em;
+	font-weight:100;
+}
+button.radio.big { width: 74px; height: 76px; }
+button.radio.small { width: 35px; height: 35px; padding-left: 4px; }
+
+.size{ margin-bottom:7px;}
+.size label{ display:block; font-size:11px; margin-bottom:3px;}
+.size input{ width:27px;}
+.size .measure { font-size: 10px; }
+#target{
+	width:100%;
+	padding:5px 0px;
+	border:0px;
+	outline:0px solid #ccc;
+}
+#target_box{
+	padding:0px 5px;
+	border:0px;
+	outline:1px solid #ccc;
+}
+.ui-corner-all{
+	border-bottom-right-radius:0px !important;
+	border-top-right-radius:0px !important;
+	border-bottom-left-radius:0px !important;
+	border-top-left-radius:0px !important;
+}
+.ui-widget-content input {
+	border:0px;
+	outline:0px;
+	padding:0px;
+	height:17px;
+	line-height:17px;
+}
+.ui-widget-content input:focus{
+	border:0px;
+	outline:0px;
+}
+.overlay{
+	display:none;
+	z-index:100;
+	position:absolute;
+	top:0px; left:0px; right:0px; bottom:0px;
+	background:rgba(127,127,127,0.4);
+}
+.overlay_content{
+	z-index:1001 !important;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-210px;
+	margin-top:-185px;
+	width:400px;
+	padding:10px;
+	background:#fff;
+	border:1px solid #ccc;
+}
+.btn{
+	background:#fff;
+	border:1px solid #ccc;
+}
+.settings{
+display:block;
+line-height:30px;
+vertical-align:middle;
+}
+.box.shadow{
+	background:rgba(127,127,127,0.5);
+}
+.box.shadow button,.box.shadow input,.box.shadow .ui-widget-content,.box.shadow #target_box{
+	opacity:0.3;
+	background:rgba(127,127,127,0.8);
+}
+.box.shadow .overlay input{
+	background:#fff;
+	border:1px solid #ccc;
+	opacity:1.0;
+}
+.box.shadow #target_box{
+	outline:1px solid rgba(127,127,127,0.2);
+}
+.dummy{
+	background:rgba(127,127,127,0.04);
+}

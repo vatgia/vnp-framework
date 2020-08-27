@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0099)http://www.martinezdelizarrondo.com/ckplugins/googlemaps.demo4/plugins/googlemaps/docs/install.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>GoogleMaps plugin</title>
+<link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h1>GoogleMaps Plugin for CKEditor</h1>
+
+<h2>Introduction</h2>
+<p>This is a dialog-based plugin to handle insertion and modification of <a href="http://maps.google.com/">Google
+  Maps</a> in <a href="http://www.ckeditor.com/">CKEditor</a></p>
+<h3 id="contact">Author:</h3>
+<p><a href="mailto:amla70@gmail.com">Alfonso Martínez de Lizarrondo</a></p>
+<h3>Sponsored by:</h3>
+<p><a href="http://dynamical.biz/blog">Ani López, SEO Consultant</a></p>
+<p><a href="http://www.uritec.net/">Uritec</a></p>
+<p><a href="http://www.incontrolsolutions.com/">InControl Solutions</a></p>
+<p><a href="http://moava.org/">Moava</a></p>
+
+<h3>Version history: </h3>
+<ol>
+	<li>1.0: 25/08/2007. First version for FCKeditor</li>
+	<li>1.x: Several improvements and features.</li>
+	<li>2.0: 30/11/2008. Lots of changes. Changed to closed source</li>
+	<li>2.x: Mainly corrections and bug fixing</li>
+	<li>3.0: xx/08/2010. Rewritten for CKEditor 3.4 and Google Maps API v3:
+		<ul>
+			<li>It doesn't require a maps API key</li>
+			<li>Improved performance of the maps</li>
+			<li>The dialog is located in the main document, so config.GoogleMaps_DialogCss is no longer needed</li>
+		</ul>
+	</li>
+	<li>3.1: 29/11/2011.
+		<ul>
+			<li>Tested with CKEditor 3.6.2 and Google Maps v3.7.</li>
+			<li>Fixing previous bugs</li>
+			<li>Enabled creating and deleting lines and areas.</li>
+		</ul>
+	</li>
+	<li>3.2: 13/05/2012.
+		<ul>
+			<li>Tested with CKEditor 3.6.3 and Google Maps v3.8.11.</li>
+			<li>Fixing reported problems</li>
+			<li>Context menu and double click in the editor are handled exclusively</li>
+			<li>It's possible to delete single points in Lines and Areas.</li>
+			<li>Enabled Traffic and Weather layers.</li>
+			<li>End script can be configured with <a href="http://www.martinezdelizarrondo.com/ckplugins/googlemaps.demo4/plugins/googlemaps/docs/install.html#endScriptPath">config.googleMaps_endScriptPath</a>.</li>
+			<li>Image buttons merged in a single sprite.</li>
+			<li>Reorder translations so it uses English if a better one isn't available.</li>
+			<li>New translations: ar, cs, fi, fr, sk, tr.</li>
+		</ul>
+	</li>
+	<li>3.2.xx: xXx
+		<ul>
+			<li>Option to use <a href="http://www.martinezdelizarrondo.com/ckplugins/googlemaps.demo4/plugins/googlemaps/docs/install.html#customicons">custom icons in the markers</a>.</li>
+			<li>Bug fixing several problems</li>
+			<li>It's possible to edit Lines and Areas</li>
+		</ul>
+	</li>
+	<li>3.3: 7-August-2012.
+		<ul>
+			<li>Option to set the custom icons from the dialog instead of only from the config file</li>
+			<li>Use shadows for the markers (for default and <a href="http://www.martinezdelizarrondo.com/ckplugins/googlemaps.demo4/plugins/googlemaps/docs/install.html#shadow">custom</a> icons).</li>
+			<li>Several new configuration options</li>
+			<li>Button in the editor for markers to insert a "Destination" link.</li>
+			<li>Remember which info windows on markers should be open.</li>
+			<li>New texts since 3.2:<br>
+				transit : 'Transit',<br>
+				directions : 'Add Directions link',<br>
+				directionsTitle : 'Directions',<br>
+			</li>
+		</ul>
+	</li>
+	<li>3.3.1: 8-August-2012.
+		<ul>
+			<li><a href="http://code.google.com/p/gmaps-api-issues/issues/detail?id=4343">Lines and areas were drawn incorrectly in IE9</a></li>
+			<li>Bug fix of using custom icons added in the dialog. Beware that anything show on a static map must be placed in a public server (localhost won't work)</li>
+		</ul>
+	</li>
+	<li>3.3.2: 9-August-2012.
+		<ul>
+			<li>Force redraw of the last segment of areas in static maps</li>
+			<li>Better resize in IE of the marker and icon dialogs</li>
+		</ul>
+	</li>
+	<li>3.3.3: 9-August-2012.
+		<ul>
+			<li>New icons didn't work correctly if there was no one defined in the config.</li>
+		</ul>
+	</li>
+	<li>3.3.4: 1-November-2012.
+		<ul>
+			<li>Compatibility with CKEditor 4.</li>
+			<li>Avoid problems if parts of the Google Maps or other Google libraries are already loaded.</li>
+		</ul>
+	</li>
+	<li>3.3.5: 26-November-2012.
+		<ul>
+			<li>Avoid error if two maps are present in the same page.</li>
+		</ul>
+	</li>
+	<li>3.3.6: 6-December-2012.
+		<ul>
+			<li>Avoid problems while inserting Markers and Text notes if there are Lines or Areas in the map.</li>
+			<li>Try to avoid layout problems due to the excesive padding in the dialogs of Moono (default skin for v4).</li>
+			<li>Little error while creating a Text note.</li>
+		</ul>
+	</li>
+	<li>3.3.7: 6-December-2012.
+		<ul>
+			<li>Corrected compatibility of languages with CKBuilder.</li>
+		</ul>
+	</li>
+	<li>3.3.8: 13-December-2012.
+		<ul>
+			<li>Validate that the 'zoom' value is always numeric and not a string.</li>
+			<li>Kml files were not working properly .</li>
+		</ul>
+	</li>
+	<li>3.3.9: 16-December-2012.
+		<ul>
+			<li>Validate better the path to Kml files.</li>
+		</ul>
+	</li>
+	<li>3.4.0: 10-March-2013.
+		<ul>
+			<li>Compatibility with data filtering of upcoming CKEditor 4.1.</li>
+			<li>Compatibility with scripts that continously call editor.getData() (like the "Wordcount" plugin) instead of detecting changes.</li>
+		</ul>
+	</li>
+	<li>3.4.1: 12-March-2013.
+		<ul>
+			<li>Compatibility with devTools plugin.</li>
+		</ul>
+	</li>
+
+	<li>3.4.2 18-May-2013
+		<ul>
+			<li>Compatibility with Bootstrap in the map dialog.</li>
+			<li>Set &lt;script&gt; as the requirement for the ACF in CKEditor 4.1.</li>
+		</ul>
+	</li>
+
+	<li>3.4.3 13-June-2013
+		<ul>
+			<li>Handle correctly custom icons placed in folders with dots.</li>
+		</ul>
+	</li>
+	<li>3.4.4 26-June-2013
+		<ul>
+			<li>Support loading of maps in hidden divs. Call "initGmapsLoader()" when a hidden div is show to refresh the size of the maps. Also such maps can be configured to not load the Google libraries on page load.</li>
+		</ul>
+	</li>
+	<li>3.4.5 24-August-2013
+		<ul>
+			<li>Improved compatibility with CKBuilder (merge icon into the main toolbar strip).</li>
+			<li>Enabled "strict mode" and fixed issues.</li>
+			<li>Update "Text notes" code to draw and update properly in the dialog.</li>
+		</ul>
+	</li>
+	<li>3.4.6 9-September-2013
+		<ul>
+			<li>Detect correctly the map id if the output has the line feeds removed.</li>
+			<li>Add the optional div wrapper class to the ACF.</li>
+		</ul>
+	</li>
+	<li>3.5.0
+		<ul>
+			<li>Included support to specify an <a href="https://developers.google.com/maps/documentation/javascript/tutorial#api_key">API Key</a>.
+			For the moment it seems that the maps work correctly without a key, but in the future Google might change its mind, so it's better to include support right now. You can set it using ".googleMaps_ApiKey"</li>
+			<li>Added new configuration option ".googleMaps_weatherUsaUnits" to set the weather in Fahrenheit and Wind speed in Miles/hour.</li>
+			<li>Set empty alt attribute on the image to avoid problems with the ACF.</li>
+		</ul>
+	</li>
+	<li>3.5.1
+		<ul>
+			<li>Fixed bug in the final page when areas are used due to wrong variable assignment.</li>
+		</ul>
+	</li>
+	<li>3.5.2 13-October-2013
+		<ul>
+			<li>Use of streetview data</li>
+			<li>Enabled drawing of circles. In the static images circles won't be shown</li>
+			<li>If the map has been set to 45º imagery or it has been rotated, use that info (this won't work also with the static image)</li>
+			<li>Make the maps work automatically if the contents are inserted into a fully loaded page (for example loaded by ajax or a preview page of the editor).</li>
+			<li>Cache the geolocation data on creation of the first map to speed up further requests</li>
+			<li>Hidden the options to specify the zoom control and map types</li>
+			<li>Corrected the ability to display Traffic or Transit</li>
+			<li>Unified the options to specify the road types and added Bicycle</li>
+		</ul>
+	</li>
+	<li>3.5.3 21-November-2013
+		<ul>
+			<li>If a onLoadedGMaps function is defined, call it after the maps have been loaded, a "loadedGMaps" includes the references to the created maps (use Firebug or similar to inspect the objects)</li>
+			<li>Compatibility with IE11</li>
+			<li>Compatibility with the new "image2" widget of CKEditor 4.3</li>
+			<li>Try to limit the URL length of static maps</li>
+		</ul>
+	</li>
+	<li>3.5.4 20-January-2014
+		<ul>
+			<li>Removed console.log call left in the code</li>
+			<li>Better compatibility with recent changes in CKEditor</li>
+		</ul>
+	</li><li>3.5.5 2-February-2014
+		<ul>
+			<li>Added Autocomplete for the Search location field</li>
+		</ul>
+	</li><li>3.5.6 13-February-2014
+		<ul>
+			<li>Fixed compatibility with <a href="https://github.com/ckeditor/ckeditor-dev/commit/f59bc7d1ca20021e213a5c78d4b0a53c0e8457ea#diff-93d494c8086129d6211857548e81d6de">CKEditor 4.3.2</a></li>
+		</ul>
+
+</li></ol>
+
+<h3>Known bugs:</h3>
+<p>Google bar isn't available.</p>
+
+
+
+<h2>Installation</h2>
+<h3>1. Copying the files</h3>
+<p>Extract the contents of the zip in you plugins directory, so it ends up like
+    this<br>
+    <!--<img src="installation.png" alt="Screenshot of installation" width="311" height="346" longdesc="#install">-->
+    </p>
+<pre id="--install">ckeditor\
+	...
+	images\
+	lang\
+	plugins\
+		...
+		googlemaps\
+			...
+			plugin.js
+			readme.html
+			dialogs\
+			docs\
+			images\
+			lang\
+		...
+	skins\
+	themes\
+</pre>
+<h3>2. Adding it to CKEditor</h3>
+<p>Now add the plugin in your <em>config.js</em> or custom js configuration
+file:
+<code>config.extraPlugins='googlemaps'; </code>
+If you are already using other additional plugins, then you must have a single extraPlugins statements with all the plugins separated by commas:
+<code>config.extraPlugins='confighelper,googlemaps'; </code>
+</p>
+<h3>3. Adding it to the toolbarset</h3>
+<p>Add the button <strong>'GoogleMaps'</strong> (case sensitive) to your toolbarset:
+<code>
+
+config.toolbar_Full =
+[
+    ['Source','-','Save','NewPage','Preview','-','Templates'],
+    ['Cut','Copy','Paste','PasteText','PasteFromWord','-','Print', 'SpellChecker', 'Scayt'],
+    ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+    ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'],
+    '/',
+    ['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
+    ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
+    ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+    ['Link','Unlink','Anchor'],
+    ['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
+    '/',
+    ['Styles','Format','Font','FontSize'],
+    ['TextColor','BGColor'],
+    ['Maximize', 'ShowBlocks','-','About'],
+    ['GoogleMaps']
+];
+</code>
+</p>
+
+<h3 id="configure">4. Configure the plugin</h3>
+<p>There's no need of an API key in this version, it will automatically work on any server</p>
+
+
+<h3>Configuration options</h3>
+<p>Please note that following the CKEditor pattern, the config options now are lowercased.</p>
+<ul>
+	<li>config.<strong>googleMaps_Width</strong>: The width of the map area. Default: 500.</li>
+	<li>config.<strong>googleMaps_Height</strong>: The height of the map area. Default: 370.</li>
+	<li>config.<strong>googleMaps_CenterLat</strong>: The latitude of the center. Default: 37.4419.</li>
+	<li>config.<strong>googleMaps_CenterLon</strong>: The longitude of the center. Default: -122.1419.</li>
+	<li>config.<strong>googleMaps_Zoom</strong>: The default zoom level. Default: 11.</li>
+	<li id="WrapperClass">config.<strong>googleMaps_WrapperClass</strong>: The Google Maps automatically fills the width and height of the generated div, so if you want to add a little spacing and a border, you need to use a div around it. If this entry contains a non-empty value then such a div
+	will be generated with this class. Default: ''.<br>
+	Important: in the preview inside the editor, the class might be applied to an image, not a div!</li>
+	<li>config.<strong>googleMaps_MarkerText</strong>: Initial text for a marker. Default: lang.googlemaps.defaultMarkerText (changes with the translations)</li>
+
+	<li>config.<strong>filebrowserKmlBrowseUrl</strong> : URL of the file browser for KML files. It defaults to filebrowserBrowseUrl.
+		If it's an empty string the "Browse server" button won't be shown</li>
+	<li>config.<strong>filebrowserIconBrowseUrl</strong> : URL of the file browser for icon files. It defaults to filebrowserImageBrowseUrl || filebrowserBrowseUrl.
+
+		If it's an empty string the "Browse server" button won't be shown</li>
+
+	<li id="endScriptPath">config.<strong>googleMaps_endScriptPath</strong> : URL of end script. It defaults to "scripts/cke_gmaps_end.js" at the plugin folder.
+		If it's an empty string the script won't be inserted (you must do it elsewhere in the page or merge it together with the rest of your scripts).
+	</li>
+	<li id="customicons">config.<strong>googleMaps_Icons</strong> : An object definining custom icons. For the moment only the image and shadow are used, an example:
+<pre>config.googleMaps_Icons = {
+	start: {
+		marker: {
+			image: 'http://martinezdelizarrondo.com/icons/start.png'
+		},
+		shadow: {
+			image: 'http://martinezdelizarrondo.com/icons/shadow.png'
+		}
+	}
+};</pre>
+In the future more options (like defining sizes, etc...) might be added. Or maybe not? is it enough to use this simple data?.<br>
+Remember that if you want to show the custom icon in the static map the image must use a public URL (including the domain).<br>
+If you want to find lots of useful and greatly designed icons, look at the <a href="http://mapicons.nicolasmollet.com/">Map Icons Collection project</a>, the price is right (credits + optional donation) and you can get easily all your icons following the same theme instead of mixing different styles.
+	</li>
+	<li id="shadow">config.<strong>googleMaps_shadowMarker</strong> : Default shadow image for icons added from the dialog. In the icons folder there's a shadow for the Map Icons Collection icons if you want to use a different set, remember to place the "anchor point" of the icon and the shadow at the bottom center. If this parameter is a function, it's called with the url of the selected image, otherwise it's treated as a string. Default: no shadow.
+	</li>
+	<li>config.<strong>googleMaps_newMarkerColor</strong> : Color for new icons. It can be also the name of a custom icon. This setting can be either a normal string, or a function that returns a string. If not set it rotates between the default colors.</li>
+	<li>config.<strong>googleMaps_newOverlayColor</strong> : Color for new polylines and polygons. This setting can be either a normal string, or a function that returns a string, in this case a parameter with the type of overlay being created is passed. If not set it rotates between the default colors.
+	</li>
+	<li>config.<strong>googleMaps_overlayColors</strong> : Array with the default values for the overlay colors. Default ["#880000", "#008800", "#000088","#888800", "#880088", "#008888", "000000", "888888"]</li>
+	<li>config.<strong>googleMaps_markerColors</strong> : Array with the list of default markers to use. Default ['green', 'purple', 'yellow', 'blue', 'orange', 'red'] . In this setting you can't add new colors, the only goal of this setting is to remove the default markers that you don't want or reorder the set. Use googleMaps_Icons to add new ones, and googleMaps_markerColor to control how new markers are created.
+	</li>
+	<li>config.<strong>googleMaps_toolbar</strong> : Toolbar configuration to use for the embedded editor in markers. Besides the normal buttons, you can use this special button to insert the Directions link "GMapsInsertDirections". Default: [["Bold", "Italic", "Link", "Image"], ["Undo", "Redo"], ["GMapsInsertDirections"]]</li>
+	<li>config.<strong>googleMaps_ApiKey</strong> : Although initially the Google Maps v3 didn't require any key, at the moment Google states that you should get an API key in order to use the maps, although you can use it in any domain that you administer. Go to <a href="https://developers.google.com/maps/documentation/javascript/tutorial#api_key">the Google page</a> and follow the steps. (String).</li>
+
+	<li>config.<strong>googleMaps_weatherUsaUnits</strong> : Switches the default temperature and speed units in the weather layer to use the USA system  (Fahrenheit and Miles/hour) instead of metric. (boolean: true/false)</li>
+</ul>
+<!--
+<li>FCKConfig.<strong>GoogleMaps_Editor_Width</strong> : Width of the HTML editor for the content of markers</li>
+<li>FCKConfig.<strong>GoogleMaps_Editor_Height</strong> : Height of the HTML editor for the content of markers</li>
+<li>FCKConfig.<strong>GoogleMaps_Editor_CustomConfigurationsPath</strong> : CustomConfigurationsPath of the HTML editor for the content of markers<br>
+	If it's missing it will reuse the path of the main instance of FCKeditor.</li>
+<li>FCKConfig.<strong>GoogleMaps_Editor_ToolbarSet</strong> : Name of the Toolbarse of the HTML editor for the content of markers<br>
+	This toolbarset must be defined in the configuration file for the embedded editor. By default it uses the "Basic" set.</li>
+
+<li>FCKConfig.<strong>KMLBrowserWindowWidth</strong> and FCKConfig.<strong>KMLBrowserWindowHeight</strong>: Dimensions of the
+	window for the KML file browser</li>
+-->
+
+<h3>5. Use it</h3>
+<p align="right">Now empty the cache of your browser and reload the editor, the new button
+  <img src="./GoogleMaps plugin_files/icon.gif" alt="Insert GoogleMap" width="16" height="16"> should
+  be <!--<a href="users.html">-->ready to use<!--</a>-->.</p>
+  <p>Here's a video showing the <a href="http://www.youtube.com/watch?v=-Nz2l4sYqeI">basic features</a> and another for the <a href="http://www.youtube.com/watch?v=Ay2zFJgXUGI">elements tab</a>
+
+</p><h3>6. Translations</h3>
+<p>To add a new translation open plugin.js and search for "translations", it's at line 1113 and add your language (the example is based on adding Polish ('pl')</p>
+  <code>    // translations
+    lang : ['el', 'en', 'es'],</code>
+to<code>    // translations
+    lang : ['el', 'en', 'es', 'pl'],</code>
+<p>
+Then in the lang folder copy the en.js to pl.js, edit that file and in the first line set your language:</p>
+<code>CKEDITOR.addPluginLang( 'googlemaps', 'pl',</code>
+<p>and finally, translate all the text between quotes :-)</p>
+<p>If you send it back to me I'll include it in the next versions.</p>
+
+<h3>Other notes</h3>
+<p>The KML files aren't used in the static maps. And in order for them to work you should use them in a public server (localhost won't work with .kmz)<br>
+You might need to adjust the server to use the correct MIME types (application/vnd.google-earth.kml+xml for .kml and application/vnd.google-earth.kmz for .kmz).
+</p>
+<p>As a summary of features that aren't available in the static preview:</p>
+<ul>
+	<li>KML files</li>
+	<li>Circles</li>
+	<li>Text overlays</li>
+	<li>Also, if there's too much data, the image won't be shown at all (too many lines, areas, icons... so that the URL to the image is too long)</li>
+	<li>The maximum size for the image is 640x640, if you use a bigger one, it will be scaled</li>
+</ul>
+
+<p>&nbsp;</p>
+<p>If you need some special feature for this plugin, or if you need any other kind of plugin
+for CKEditor then <a href="http://www.martinezdelizarrondo.com/ckplugins/googlemaps.demo4/plugins/googlemaps/docs/install.html#contact">contact me</a> and we can discuss it</p>
+<h2>Disclaimers</h2>
+<p>CKEditor is  © CKSource.com</p>
+<p>Google, Google Maps and the Google Maps API are all properties of Google.</p>
+
+
+</body></html>

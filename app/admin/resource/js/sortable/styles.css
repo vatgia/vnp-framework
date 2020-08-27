@@ -1,0 +1,28 @@
+#test-list *{ font:Verdana, Arial, Helvetica, sans-serif; font-size:12px;}
+#test-list {
+	list-style: none;
+	padding:0px;
+	margin:0px;
+	background:#f9f9f9;
+}
+
+#test-list li {
+	display: block;
+	list-style:none;
+	text-align:left;
+	border-bottom:dotted 1px #79C5EB;
+}
+#test-list li .t span{
+	font-weight:bold;
+	color:#0F67A1;
+	text-decoration:none;
+}
+#test-list li .m{
+	padding-bottom:5px;
+	padding-top:5px;
+	cursor:pointer;
+}
+#test-list li .m a{ text-decoration:none; color:#660000}
+#test-list li img.handle {
+	cursor: move;
+}

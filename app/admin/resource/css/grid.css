@@ -1,0 +1,50 @@
+/*!* CSS Document *!*/
+/*.page .s{ color:#F00; font-size:13px}*/
+/*.page a{ text-decoration:none}*/
+/*.page span{ color:#333; padding-left:2px; padding-right:2px; font-size:14px}*/
+/*.table{ border-collapse:collapse; width:100%; border:solid 1px #CCCCCC;}*/
+/*.table *{ font:Tahoma, Verdana; font-size:11px; color:#1C3A70}*/
+/*.table .h{*/
+	/*!*background:url(../images/grid/fhbg.gif);*!*/
+	/*padding:4px;*/
+/*}*/
+/*.table .f{*/
+	/*background:url(../images/grid/bg.gif);*/
+	/*padding:9px;*/
+	/*color:#FF9900;*/
+/*}*/
+/*.table .vnd{ text-align:right; color:#FF0000; font-weight:bold; width:130px;}*/
+/*.table .date{ text-align:center; width:100px;}*/
+/*.table .check{ width:15px; text-align:center}*/
+/*.hidden{ display:none}*/
+/*.table .textbox{ padding-left:5px; padding-right:10px; padding-top:1px; padding-bottom:1px;}*/
+/*.table button{ border:solid 1px #CCC;  margin-left:2px;}*/
+/*.table .check input{ border:0px; margin:0px; padding:0px;}*/
+/*.table span input{ padding-right:5px;}*/
+/*.table form{ margin:0px; padding:0px;}*/
+/*!* Tooltip *!*/
+
+/*#tooltip {*/
+	/*position:absolute;*/
+	/*z-index:9999;*/
+	/*color:#fff;*/
+	/*font-size:10px;*/
+	/**/
+/*}*/
+
+/*#tooltip .tipHeader {*/
+	/*height:0px;*/
+/*}*/
+
+
+/*#tooltip .tipBody {*/
+	/*background-color:#FFC;*/
+	/*padding:2px;*/
+	/*border:solid 1px #900;*/
+	/*text-align:center;*/
+	/*color:#900;*/
+/*}*/
+
+/*#tooltip .tipFooter {*/
+	/*height:0px;*/
+/*}*/

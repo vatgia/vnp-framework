@@ -1,0 +1,79 @@
+.ac_results {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    overflow: hidden;
+    padding: 0;
+    z-index: 99999;
+}
+.ac_results ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.ac_results li {
+    cursor: default;
+    display: block;
+    font-size: 12px;
+    line-height: 18px;
+    margin: 0;
+    overflow: hidden;
+    padding: 2px 5px;
+}
+.ac_loading {
+    background: url("/images/indicator.gif") no-repeat scroll right center #FFFFFF;
+}
+.ac_odd {
+    background-color: #F2F2F2;
+}
+.ac_odd i, .ac_even i {
+    color: #FF0000;
+    font-size: 11px;
+}
+.ac_odd em, .ac_even em {
+    color: #003399;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: bold;
+}
+.ac_over {
+    background-color: #AACEF8;
+}
+.ac_p {
+    color: #960000;
+    font-weight: bold;
+}
+.ac_rc {
+    float: right;
+    font-size: 11px;
+}
+.ac_rc a {
+    color: #003399;
+    text-decoration: none;
+}
+.ac_rc a:hover {
+    color: #E97D13;
+    text-decoration: none;
+}
+.ac_ads {
+    font-size: 1px;
+    height: 1px;
+    text-align: center;
+}
+.ad_container_main {
+    margin: 0 8px;
+    text-align: left;
+}
+.ads_text_link_main {
+    color: #003399;
+    font-size: 14px;
+}
+.ads_text_link_main:hover {
+    color: #E97D13;
+}
+.ad_text_description_main {
+    margin: 2px 0;
+}
+.ads_small_link_main {
+    color: #008000;
+}

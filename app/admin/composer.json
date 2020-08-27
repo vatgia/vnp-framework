@@ -1,0 +1,7 @@
+{
+  "name": "vatgia/admin",
+  "require": {
+    "philo/laravel-blade": "^3.1",
+    "illuminate/view": "5.5.44"
+  }
+}

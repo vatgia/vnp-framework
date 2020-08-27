@@ -1,0 +1,91 @@
+.forumlogin *{
+	font:Verdana, Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#333333;
+}
+.forumlogin input{ border:solid 1px #CCCCCC}
+.title_login{
+	vertical-align:top;
+	font-weight:bold;
+	color:#15428B;
+	font:bold 11px tahoma,arial,verdana,sans-serif;
+	padding-left:10px;
+	padding-top:5px;
+}
+.left_title{
+	background:url(../images/1.jpg);
+	padding-bottom:5px;
+	padding-top:5px;
+	padding-left:5px;
+	font-weight:bold;
+	color:#142E62;
+}
+.header{
+	background:url(../images/hd-bg.gif);
+	color:#FFFFFF;
+	padding-left:7px;
+	padding-top:10px;
+	font-weight:bold;
+	padding-bottom:20px;
+}
+.header a{ color:#FFFFFF; text-decoration:none; font-weight:normal}
+	/**
+	 *	Basic Layout Theme
+	 */
+	.ui-layout-pane { /* all 'panes' */ 
+		border: 1px solid #99BBE8; 
+	} 
+	.ui-layout-pane-center { /* IFRAME pane */ 
+		padding: 0;
+		margin:  0;
+	} 
+	.ui-layout-pane-west { /* west pane */ 
+		padding: 0px; 
+		background-color: #f9f9f9 !important;
+		overflow: auto;
+	} 
+
+	.ui-layout-resizer { /* all 'resizer-bars' */ 
+		background: #DDD; 
+		} 
+		.ui-layout-resizer-open:hover { /* mouse-over */
+			background: #9D9; 
+		}
+
+	.ui-layout-toggler { /* all 'toggler-buttons' */ 
+		background: #FF0000; 
+		} 
+		.ui-layout-toggler-closed { /* closed toggler-button */ 
+			background: #CCC; 
+			border-bottom: 1px solid #BBB; 
+		} 
+		.ui-layout-toggler .content { /* toggler-text */ 
+			font: 14px bold Verdana, Verdana, Arial, Helvetica, sans-serif;
+		}
+		.ui-layout-toggler:hover { /* mouse-over */ 
+			background: #DFE8F6; 
+			} 
+			.ui-layout-toggler:hover .content { /* mouse-over */ 
+				color: #009; 
+				}
+
+	/* class to make the 'iframe mask' visible */
+	.ui-layout-mask {
+		opacity: 0.2 !important;
+		filter:	 alpha(opacity=20) !important;
+		background-color: #666 !important;
+	}
+
+
+	body .ui-layout-center *{
+		background-color: black;
+		font-family:Verdana, Arial, Helvetica, sans-serif;
+	}
+	body .ui-layout-north *{
+		font-family:Verdana, Arial, Helvetica, sans-serif;
+		font-size:12px;
+	}
+	body .ui-layout-west *{
+		font-family:Verdana, Arial, Helvetica, sans-serif;
+		font-size:11px;
+	}
