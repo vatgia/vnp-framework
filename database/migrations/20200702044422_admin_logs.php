@@ -29,7 +29,7 @@ class AdminLogs extends AbstractMigration
     public function change()
     {
 
-        $model = new \App\Models\AdminLog();
+        $model = new \VatGia\Admin\Models\AdminLog();
         $prefix = $model->prefix;
 
         $table = $this->table($model->table, ['id' => $prefix . '_id']);
@@ -44,7 +44,7 @@ class AdminLogs extends AbstractMigration
         ]);
         $table->addColumn($prefix . '_record_title', ColumnTypes::VARCHAR);
         timestamp_fields($table, $prefix);
-        
+
         $table->save();
 
     }
