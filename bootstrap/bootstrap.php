@@ -1,6 +1,6 @@
 <?php
 //Disable for fix session locking
-//session_start();
+session_start();
 define('APP_START', microtime(true));
 
 defined('ROOT') OR define('ROOT', realpath(dirname(__FILE__) . '/../'));
