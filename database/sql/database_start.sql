@@ -181,7 +181,6 @@ CREATE TABLE `users` (
   `use_avatar` varchar(255) DEFAULT NULL,
   `use_idvg_access_token` varchar(255) DEFAULT NULL,
   `use_security` varchar(255) DEFAULT NULL,
-  `use_updated_at` int(11) DEFAULT NULL,
   `use_supplier` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`use_id`),
   KEY `index` (`use_login`),
