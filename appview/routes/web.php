@@ -13,16 +13,22 @@ Route::get(
     [\AppView\Controllers\HomeController::class, 'render']
 );
 
-Route::get(['/posts/{slug}-{id}', 'post.detail'], [\AppView\Controllers\PostController::class, 'detail']);
-
 Route::get(
     ['/login', 'login'],
     [\AppView\Controllers\Auth\AuthController::class, 'showLoginForm']
 );
 
 Route::get(
-    ['/idvg/login-callback', 'login-callback'],
-    [\AppView\Controllers\Auth\AuthController::class, 'loginCallback']
+    ['/register', 'register'],
+    [
+        \AppView\Controllers\Auth\AuthController::class, 'register'
+    ]
+);
+Route::post(
+    ['/register', 'register.post'],
+    [
+        \AppView\Controllers\Auth\AuthController::class, 'postRegister'
+    ]
 );
 
 Route::group([
@@ -36,13 +42,4 @@ Route::group([
         [\AppView\Controllers\Auth\AuthController::class, 'logout']
     );
 
-    Route::get(
-        ['/profile', 'profile'],
-        [\AppView\Controllers\Auth\AuthController::class, 'showProfile'],
-        [
-            'before' => ['auth'],
-        ]
-    );
-
 });
-

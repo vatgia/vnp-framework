@@ -9,7 +9,9 @@
 namespace AppView\Controllers\Auth;
 
 
+use AppView\Repository\UserRepository;
 use VatGia\ControllerBase;
+use VatGia\Helpers\Facade\FlashMessage;
 use VatGia\Helpers\IDVGHelpers;
 
 /**
@@ -81,6 +83,30 @@ class AuthController extends ControllerBase
     public function showProfile()
     {
         return redirect('https://id.vatgia.com/v2/thiet-lap');
+    }
+
+
+    public function register()
+    {
+
+        return view('auth/register')->render();
+    }
+
+    public function postRegister(UserRepository $userRepository)
+    {
+
+        $name = getValue('name', 'str', 'POST');
+        $email = getValue('email', 'str', 'POST');
+        $phone = getValue('phone', 'str', 'POST');
+        $password = getValue('password', 'str', 'POST');
+        $retype_password = getValue('retype_password', 'str', 'POST');
+        try {
+            $userRepository->register($name, $email, $phone, $password, $retype_password);
+            redirect(url('dashboard.index'));
+        } catch (\Exception $e) {
+            return FlashMessage::error($e->getMessage(), url_back());
+        }
+
     }
 
 }
