@@ -8,10 +8,10 @@
   "license": "MIT",
   "type": "project",
   "repositories": [
-    {
-      "type": "path",
-      "url": "libraries/**/**/"
-    },
+//    {
+//      "type": "path",
+//      "url": "libraries/**/**/"
+//    },
     {
       "type": "vcs",
       "url": "ssh://git@git.vatgia.vn/vatgia/framework.git"
