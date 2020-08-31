@@ -20,6 +20,7 @@ class SettingTransformer extends TransformerAbstract
             $data = [
                 'id' => (int)$item->id,
                 'key' => $item->key,
+                'user_id' => (int)$item->user_id,
                 'type' => $item->type,
                 'value' => url() . '/upload/settings/' . $item->value
             ];
@@ -27,11 +28,11 @@ class SettingTransformer extends TransformerAbstract
             $data = [
                 'id' => (int)$item->id,
                 'key' => $item->key,
+                'user_id' => (int)$item->user_id,
                 'type' => $item->type,
                 'value' => html_entity_decode($item->value)
             ];
         }
-
         return $data;
     }
 
