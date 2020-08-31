@@ -16,9 +16,30 @@ return [
             ],
         ],
     ],
-
     'settings/all' => [
         'title' => 'Lấy tất cả settings',
         'input' => [],
+    ],
+    'settings/set' => [
+        'title' => 'Set giá trị setting',
+        'input' => [
+            'key' => [
+                'title' => 'Setting key',
+                'rule' => ''
+            ],
+            'value' => [
+                'title' => 'Giá trị',
+                'rule' => ''
+            ],
+            'user_id' => [
+                'title' => 'User id',
+                'rule' => 'integer',
+                'default' => 0
+            ],
+            'type' => [
+                'title' => 'Loại setting',
+                'rule' => ''
+            ]
+        ],
     ],
 ];
