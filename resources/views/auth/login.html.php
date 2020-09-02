@@ -21,16 +21,19 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="<?= url('index') ?>"><b>ACE</b>Crm</a>
+        <a href="<?= url('index') ?>"><b>VNP</b>Framework</a>
     </div>
     <!-- /.login-logo -->
+    <?php
+    \VatGia\Helpers\Facade\FlashMessage::display();
+    ?>
     <div class="card">
         <div class="card-body login-card-body">
             <p class="login-box-msg">Sign in to start your session</p>
 
             <form method="post">
                 <div class="input-group mb-3">
-                    <input name="login_name" type="text" class="form-control" placeholder="<?=trans('label.email_or_phone', 'Email hoặc số điện thoại')?>">
+                    <input name="username" id="username" type="text" class="form-control" placeholder="<?=trans('label.email_or_phone', 'Email hoặc số điện thoại')?>">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span> /
@@ -50,7 +53,7 @@
                 <div class="row">
                     <div class="col-8">
                         <div class="icheck-primary">
-                            <input type="checkbox" id="remember">
+                            <input name="remember" type="checkbox" id="remember">
                             <label for="remember">
                                 Remember Me
                             </label>

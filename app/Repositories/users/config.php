@@ -12,6 +12,14 @@ return [
         'input' => [
         ]
     ],
+    'users/login' => [
+        'title' => 'Đăng nhập',
+        'input' => [
+            'username' => [],
+            'password' => [],
+            'remember' => []
+        ]
+    ],
     'users/register' => [
         'title' => 'Đăng ký người dùng mới',
         'input' => [

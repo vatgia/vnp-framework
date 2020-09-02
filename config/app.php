@@ -80,6 +80,8 @@ return [
 
         \AppView\AppViewServiceProvider::class,
 
+        \VatGia\Auth\AuthenticateServiceProvider::class
+
 //        \VatGia\Mail\MailServiceProvider::class
     ],
 ];

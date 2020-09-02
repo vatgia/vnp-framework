@@ -17,6 +17,10 @@ Route::get(
     ['/login', 'login'],
     [\AppView\Controllers\Auth\AuthController::class, 'showLoginForm']
 );
+Route::post(
+    ['/login', 'login.post'],
+    [\AppView\Controllers\Auth\AuthController::class, 'postLogin']
+);
 
 Route::get(
     ['/register', 'register'],

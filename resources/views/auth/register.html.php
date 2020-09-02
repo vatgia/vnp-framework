@@ -21,14 +21,12 @@
 <body class="hold-transition register-page">
 <div class="register-box">
     <div class="register-logo">
-        <a href="<?= url('index') ?>"><b>ACE</b>Crm</a>
+        <a href="<?= url('index') ?>"><b>VNP</b>Framewrok</a>
     </div>
 
     <div class="help-block show_err">
         <?php
-        if (\VatGia\Helpers\Facade\FlashMessage::hasErrors()) {
             \VatGia\Helpers\Facade\FlashMessage::display();
-        }
         ?>
     </div>
 

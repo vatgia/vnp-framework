@@ -9,17 +9,17 @@
 namespace AppView\Middlewares;
 
 
+use VatGia\Auth\Facade\Auth;
+
 class LoginRequire
 {
 
     public function __invoke()
     {
         // TODO: Implement __invoke() method.
-        if(app()->has('auth') && app('auth')->logged)
-        {
+        if (Auth::isLogged()) {
             return;
         }
-
-        redirect('/login');
+        redirect(url('login'));
     }
 }

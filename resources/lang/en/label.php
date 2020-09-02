@@ -5,5 +5,6 @@ return array (
   'password' => '',
   'retype_password' => '',
   'register' => '',
+  'email_or_phone' => '',
 );
            

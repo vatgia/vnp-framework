@@ -5,5 +5,7 @@ return array (
   'i_agree_to_the' => '',
   'terms' => '',
   'i_already_have_a_membership' => '',
+  'login' => '',
+  'register_a_new_membership' => '',
 );
            

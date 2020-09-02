@@ -47,6 +47,10 @@
     {
       "type": "vcs",
       "url": "ssh://git@git.vatgia.vn/vatgia/route.git"
+    },
+    {
+      "type": "vcs",
+      "url": "ssh://git@git.vatgia.vn/vatgia/authenticate.git"
     }
   ],
   "minimum-stability": "stable",
@@ -105,6 +109,7 @@
     "process-timeout": 1200,
     "preferred-install": "dist",
     "sort-packages": true,
-    "optimize-autoloader": true
+    "optimize-autoloader": true,
+    "secure-http": false
   }
 }

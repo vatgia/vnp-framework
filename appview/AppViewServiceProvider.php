@@ -36,7 +36,6 @@ class AppViewServiceProvider extends ServiceProvider
 
     public function routeFilter()
     {
-        Route::filter(UserAuthFromCookie::class, new UserAuthFromCookie);
         Route::filter(LoginRequire::class, new LoginRequire);
     }
 
@@ -47,7 +46,6 @@ class AppViewServiceProvider extends ServiceProvider
 
         Route::group([
             'before' => [
-                UserAuthFromCookie::class
             ]
         ], function () {
             $this->loadRoutesFrom(base_path('appview/routes/web.php'));

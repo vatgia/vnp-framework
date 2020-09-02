@@ -10,9 +10,9 @@ namespace AppView\Controllers\Auth;
 
 
 use AppView\Repository\UserRepository;
+use VatGia\Auth\Facade\Auth;
 use VatGia\ControllerBase;
 use VatGia\Helpers\Facade\FlashMessage;
-use VatGia\Helpers\IDVGHelpers;
 
 /**
  * Class AuthController
@@ -21,73 +21,52 @@ use VatGia\Helpers\IDVGHelpers;
 class AuthController extends ControllerBase
 {
 
-    protected $useOAuth2 = true;
-
     protected $idvgHelper;
-
-    /**
-     * AuthController constructor.
-     *
-     * Mặc định VNP Framework sẽ login bằng id.vatgia.com
-     */
-    public function __construct()
-    {
-        $this->idvgHelper = new IDVGHelpers(config('auth.idvg'));
-    }
 
     /**
      * @return string
      */
     public function showLoginForm()
     {
-        if (property_exists($this, 'useOAuth2') && $this->useOAuth2 == true) {
-            return redirect($this->idvgHelper->loginRedirectLink('/'));
+        if(Auth::isLogged())
+        {
+            redirect(url_back());
         }
 
         return view('auth/login')->render();
     }
 
-    public function loginCallback()
+    public function postLogin(UserRepository $repository)
     {
-        $accessCode = getValue('access_code', 'str');
 
-        if (!$accessCode) {
-            return redirect('/');
-        }
-
-        $accessToken = $this->idvgHelper->getAccessTokenFromAccessCode($accessCode);
-
-        if (!$accessToken) {
-            return redirect('/login');
-        }
-
-        $loginCheck = model('login/login_with_idvg_access_token')->load([
-            'access_token' => $accessToken
-        ]);
-
-        if (true === $loginCheck['vars']['success']) {
-            return redirect('/');
+        $username = getValue('username', 'str', 'POST', '');
+        $password = getValue('password', 'str', 'POST', '');
+        $remember = getValue('remember', 'int', 'POST', 0);
+        if ($repository->login($username, $password, $remember)) {
+            return FlashMessage::success('Đăng nhập thành công', url('index'));
         } else {
-            return redirect('/');
+            return FlashMessage::error('Đăng nhập lỗi', url_back());
         }
-
     }
 
     public function logout()
     {
-        app('user')->logout();
-
-        return redirect($this->idvgHelper->logoutLink());
+        return Auth::logout();
     }
 
     public function showProfile()
     {
-        return redirect('https://id.vatgia.com/v2/thiet-lap');
+
     }
 
 
     public function register()
     {
+
+        if(Auth::isLogged())
+        {
+            redirect(url_back());
+        }
 
         return view('auth/register')->render();
     }
@@ -102,7 +81,7 @@ class AuthController extends ControllerBase
         $retype_password = getValue('retype_password', 'str', 'POST');
         try {
             $userRepository->register($name, $email, $phone, $password, $retype_password);
-            redirect(url('dashboard.index'));
+            redirect(url('index'));
         } catch (\Exception $e) {
             return FlashMessage::error($e->getMessage(), url_back());
         }

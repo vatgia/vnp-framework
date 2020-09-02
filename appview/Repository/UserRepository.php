@@ -33,4 +33,16 @@ class UserRepository
 
         return $result['vars'];
     }
+
+    public function login($username, $password, $remember = false): bool
+    {
+
+        $result = repository('users/login')->post([
+            'username' => $username,
+            'password' => $password,
+            'remember' => (bool)$remember
+        ]);
+
+        return (bool)$result['vars'];
+    }
 }
