@@ -36,7 +36,7 @@ return [
     'validate_lang' => 'vn',
 
     //Ngôn ngữ
-    'locale' => 'vi',
+    'locale' => 'vn',
 
     'locale_fallback' => 'en',
 

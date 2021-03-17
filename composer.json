@@ -9,44 +9,8 @@
   "type": "project",
   "repositories": [
     {
-      "type": "vcs",
-      "url": "ssh://git@git.vatgia.vn/vatgia/framework.git"
-    },
-    {
-      "type": "vcs",
-      "url": "ssh://git@git.vatgia.vn/vatgia/core.git"
-    },
-    {
-      "type": "vcs",
-      "url": "ssh://git@git.vatgia.vn/vatgia/model.git"
-    },
-    {
-      "type": "vcs",
-      "url": "ssh://git@git.vatgia.vn/vatgia/helpers.git"
-    },
-    {
-      "type": "vcs",
-      "url": "ssh://git@git.vatgia.vn/vatgia/api.git"
-    },
-    {
-      "type": "vcs",
-      "url": "ssh://git@git.vatgia.vn/vatgia/admin.git"
-    },
-    {
-      "type": "vcs",
-      "url": "ssh://git@git.vatgia.vn/vatgia/cache.git"
-    },
-    {
-      "type": "vcs",
-      "url": "ssh://git@git.vatgia.vn/vatgia/queue.git"
-    },
-    {
-      "type": "vcs",
-      "url": "ssh://git@git.vatgia.vn/vatgia/route.git"
-    },
-    {
-      "type": "vcs",
-      "url": "ssh://git@git.vatgia.vn/vatgia/authenticate.git"
+      "type": "composer",
+      "url": "http://composer.sangchanh.info"
     }
   ],
   "minimum-stability": "stable",
@@ -62,6 +26,7 @@
     "vatgia/helpers": "dev-master",
     "vatgia/model": "dev-master",
     "vatgia/queue": "dev-master",
+    "vatgia/authenticate": "dev-master",
     "vatgia/route": "dev-master"
   },
   "require-dev": {
