@@ -61,5 +61,3 @@ Hàm `toArray` của `Model` khi được gọi sẽ trả về 1 mảng với c
     });
     
     
-*Còn nhiều hàm của collection nhưng chưa bắt chước hết trong cái colleciton của Laravel. Ai rảnh thì bổ xung đi :))*
-Tham khảo: https://github.com/illuminate/support/blob/master/Collection.php
